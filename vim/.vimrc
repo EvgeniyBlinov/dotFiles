@@ -9,7 +9,7 @@ call plug#begin('~/custom_vim/plugged')
 " colorscheme's ----------------
 Plug 'tpope/vim-sensible'
 Plug 'smurfd/winterd'
-Plug 'solarized'
+Plug 'vim-scripts/solarized'
 Plug 'vim-scripts/navajo-night'
 Plug 'sickill/vim-monokai'
 Plug 'NLKNguyen/papercolor-theme'
@@ -25,12 +25,14 @@ Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 
 Plug 'scrooloose/nerdtree'
-Plug 'tagbar'
+Plug 'vim-scripts/tagbar'
+Plug 'vim-scripts/dbext.vim'
 
 Plug 'tpope/vim-surround'
 
-Plug 'vim-javascript'
-Plug 'vim-jsbeautify'
+Plug 'vim-scripts/vim-javascript'
+Plug 'vim-scripts/vim-jsbeautify'
+
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -39,7 +41,7 @@ Plug 'shougo/neocomplete.vim'
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 Plug 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 
 Plug 'ervandew/supertab'
 
@@ -67,6 +69,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 
+
 call plug#end()
 
 filetype plugin indent on
@@ -80,8 +83,6 @@ autocmd FileType python highlight OverLength ctermbg=red ctermfg=white guibg=#59
 autocmd FileType python match OverLength /\(\%81v.\+\)\|\( \+$\)/
 autocmd FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 autocmd FileType vim map <buffer> <leader>rr :source %<CR>
-autocmd FileType go map <buffer> 'g <Plug>(go-def-tab)
-"  autocmd FileType python map <buffer> <C-G> ...
 
 
 let mapleader = ","
@@ -296,13 +297,7 @@ let g:tagbar_usearrows = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug: YouCompleteMe
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ycm_min_num_of_chars_for_completion = 0
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug: YouCompleteMe
+" Plug: Slimux
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <leader><leader>r :SlimuxSendKeysLast<CR>
 map <leader>kk :SlimuxSendKeysPrompt<CR>
@@ -332,7 +327,7 @@ map  <buffer> <silent> <Leader><Leader>x <Plug>(IPython-RunCell)
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug: IPython
+" Plug: Neocomplete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " :NeocompleteEnable
 let g:neocomplete#enable_at_startup = 0
@@ -344,24 +339,59 @@ let g:neocomplete#sources#syntax#min_keyword_length = 0
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug: IPython
+" Plug: vim-go
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:go_bin_path = expand("~/.gotools")
 let g:go_fmt_command = "goimports"
-" let g:go_bin_path = expand("~/.gotools")
-"
+autocmd FileType go map <buffer> 'g <Plug>(go-def-tab)
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug: UltiSnips
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-e>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsJumpForwardTrigger="<a-b>"
+let g:UltiSnipsJumpForwardTrigger="<a-g>"
+let g:UltiSnipsJumpBackwardTrigger="<a-f>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug: dbext
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:dbext_default_pgsql_bin                = 'psql'
+let g:dbext_default_pgsql_cmd_header         = ''
+let g:dbext_default_pgsql_cmd_terminator     = ''
+let g:dbext_default_pgsql_cmd_options        = ''
+let g:dbext_default_pgsql_extra              = ''
+let g:dbext_default_pgsql_pgpass             = expand('$home/.pgpass')
+let g:dbext_default_buffer_lines = 15
+source ~/Dropbox/dotFiles/vim/vimrc_dbext.vim
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug: EasyMotion
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
+" let g:EasyMotion_do_shade = 1
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" python
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+source ~/Dropbox/dotFiles/vim/vimrc_python.vim
+
+" if has("python3")
+"     map <a-y> :py3 EvaluateCurrentRange()
+" endif
+"
+" if has("python")
+"     map <a-y> :py EvaluateCurrentRange()
+" endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " maps
@@ -382,7 +412,13 @@ vnoremap <c-l> 5l
 nnoremap j gj
 nnoremap k gk
 
-nnoremap <c-p> :tabprev<cr>
 nnoremap <c-n> :tabnext<cr>
-vnoremap <c-p> :tabprev<cr>
+nnoremap <c-p> :tabprev<cr>
 vnoremap <c-n> :tabnext<cr>
+vnoremap <c-p> :tabprev<cr>
+
+
+nnoremap <a-5> :tabnext<cr>
+nnoremap <a-3> :tabprev<cr>
+vnoremap <a-5> :tabnext<cr>
+vnoremap <a-3> :tabprev<cr>
