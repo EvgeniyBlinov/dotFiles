@@ -51,6 +51,7 @@ Plug 'vim-scripts/tComment'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'wmvanvliet/vim-ipython'
+Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'takac/vim-hardtime'
 Plug 'matze/vim-move'
@@ -356,7 +357,7 @@ autocmd FileType go map <buffer> 'g <Plug>(go-def-tab)
 " let g:UltiSnipsJumpForwardTrigger="<a-g>"
 " let g:UltiSnipsJumpBackwardTrigger="<a-f>"
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-m>"
+let g:UltiSnipsJumpForwardTrigger="<c-m>"   " or Enter
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
@@ -414,13 +415,12 @@ vnoremap <c-l> 5l
 nnoremap j gj
 nnoremap k gk
 
-nnoremap <c-n> :tabnext<cr>
-nnoremap <c-p> :tabprev<cr>
-vnoremap <c-n> :tabnext<cr>
-vnoremap <c-p> :tabprev<cr>
+" nnoremap <c-n> :tabnext<cr>
+" nnoremap <c-p> :tabprev<cr>
+" vnoremap <c-n> :tabnext<cr>
+" vnoremap <c-p> :tabprev<cr>
 
-
-nnoremap <a-0> :tabnext<cr>
-nnoremap <a-9> :tabprev<cr>
-vnoremap <a-0> :tabnext<cr>
-vnoremap <a-9> :tabprev<cr>
+nnoremap <M-0> :tabnext<cr>
+nnoremap <M-8> :tabprev<cr>
+vnoremap <M-0> :tabnext<cr>
+vnoremap <M-8> :tabprev<cr>
