@@ -420,7 +420,7 @@ vnoremap <c-n> :tabnext<cr>
 vnoremap <c-p> :tabprev<cr>
 
 
-nnoremap <a-5> :tabnext<cr>
-nnoremap <a-3> :tabprev<cr>
-vnoremap <a-5> :tabnext<cr>
-vnoremap <a-3> :tabprev<cr>
+nnoremap <a-0> :tabnext<cr>
+nnoremap <a-9> :tabprev<cr>
+vnoremap <a-0> :tabnext<cr>
+vnoremap <a-9> :tabprev<cr>
