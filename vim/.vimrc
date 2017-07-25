@@ -300,7 +300,7 @@ let g:tagbar_usearrows = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug: Slimux
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <leader><leader>r :SlimuxSendKeysLast<CR>
+nmap <leader><leader>r :w<CR> :SlimuxSendKeysLast<CR>
 map <leader>kk :SlimuxSendKeysPrompt<CR>
 nmap <leader>cc :SlimuxSendKeysConfigure<CR>
 
