@@ -414,6 +414,11 @@ vnoremap <c-l> 5l
 
 nnoremap j gj
 nnoremap k gk
+ 
+imap <a-l> <Right>
+imap <a-h> <Left>
+" imap <a-j> <Down>
+" imap <a-k> <Down>
 
 " nnoremap <c-n> :tabnext<cr>
 " nnoremap <c-p> :tabprev<cr>
