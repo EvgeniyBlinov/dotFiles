@@ -50,7 +50,7 @@ Plug 'epeli/slimux'
 Plug 'vim-scripts/tComment'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'wmvanvliet/vim-ipython'
+" Plug 'wmvanvliet/vim-ipython'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'takac/vim-hardtime'
@@ -69,6 +69,7 @@ Plug 'w0rp/ale'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
+Plug 'vim-scripts/cscope.vim'
 
 
 call plug#end()
@@ -301,6 +302,7 @@ let g:tagbar_usearrows = 1
 " Plug: Slimux
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <leader><leader>r :w<CR> :SlimuxSendKeysLast<CR>
+" imap <leader><leader>r <ESC>:w<CR> :SlimuxSendKeysLast<CR> :startinsert<CR>
 map <leader>kk :SlimuxSendKeysPrompt<CR>
 nmap <leader>cc :SlimuxSendKeysConfigure<CR>
 
@@ -415,8 +417,11 @@ vnoremap <c-l> 5l
 nnoremap j gj
 nnoremap k gk
  
+imap <C-BS> <C-W>
 imap <a-l> <Right>
 imap <a-h> <Left>
+imap <c-l> <Right>
+" imap <c-h> <Left>
 " imap <a-j> <Down>
 " imap <a-k> <Down>
 
@@ -429,3 +434,7 @@ nnoremap <M-0> :tabnext<cr>
 nnoremap <M-8> :tabprev<cr>
 vnoremap <M-0> :tabnext<cr>
 vnoremap <M-8> :tabprev<cr>
+
+
+nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
+nnoremap <leader>l :call ToggleLocationList()<CR>
