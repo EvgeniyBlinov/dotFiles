@@ -302,6 +302,8 @@ let g:tagbar_usearrows = 1
 " Plug: Slimux
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <leader><leader>r :w<CR> :SlimuxSendKeysLast<CR>
+imap <M-9> <C-\><C-o>:w<CR><C-\><C-o>:SlimuxSendKeysLast
+nmap <M-9> :w<CR>:SlimuxSendKeysLast<cr>
 " imap <leader><leader>r <ESC>:w<CR> :SlimuxSendKeysLast<CR> :startinsert<CR>
 map <leader>kk :SlimuxSendKeysPrompt<CR>
 nmap <leader>cc :SlimuxSendKeysConfigure<CR>
@@ -434,6 +436,7 @@ nnoremap <M-0> :tabnext<cr>
 nnoremap <M-8> :tabprev<cr>
 vnoremap <M-0> :tabnext<cr>
 vnoremap <M-8> :tabprev<cr>
+
 
 
 nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
