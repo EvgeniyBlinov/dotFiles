@@ -264,6 +264,7 @@ let g:jedi#rename_command = ""
 let NERDTreeIgnore=['\~$', '\.pyc$', ]
 nnoremap <F2> :NERDTreeToggle<cr>
 nmap <leader>f :NERDTreeFind<CR>
+nmap mf :NERDTreeFind<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
