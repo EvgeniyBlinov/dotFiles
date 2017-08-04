@@ -439,10 +439,10 @@ imap <c-l> <Right>
 
 nnoremap <M-0> :tabnext<cr>
 nnoremap <M-8> :tabprev<cr>
+inoremap <M-0> <C-o>:tabnext<cr>
+inoremap <M-8> <C-o>:tabprev<cr>
 vnoremap <M-0> :tabnext<cr>
 vnoremap <M-8> :tabprev<cr>
-
-
 
 nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
 nnoremap <leader>l :call ToggleLocationList()<CR>
