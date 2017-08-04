@@ -138,5 +138,9 @@ export ADCOMBO_CFG_NAME=development
 
 alias gopathhere='export "GOPATH=$PWD"'
 
+# alias vpnwork='sudo openvpn --config ~/Dropbox/ADCOMBO/openvpn_config/adcombo-razdva.ovpn.bin --redirect-gateway def1'
+alias vpnwork='sudo openvpn --config ~/Dropbox/ADCOMBO/openvpn_config/adcombo-razdva.ovpn.bin'
+alias vpnhomejira='sudo openvpn --config ~/Dropbox/ADCOMBO/openvpn_config/adcombo-razdva-defgw.ovpn.bin'
+
 [ -f ~/Dropbox/dotFiles/zsh/zshrc_local.zsh ] && source ~/Dropbox/dotFiles/zsh/zshrc_local.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
