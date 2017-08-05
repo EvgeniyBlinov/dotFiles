@@ -391,6 +391,10 @@ source ~/Dropbox/dotFiles/vim/vimrc_dbext.vim
 let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 " let g:EasyMotion_do_shade = 1
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug: auto-pairs
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:AutoPairsMapCh = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " python
@@ -425,10 +429,10 @@ nnoremap j gj
 nnoremap k gk
  
 imap <C-BS> <C-W>
-imap <a-l> <Right>
-imap <a-h> <Left>
+" imap <a-l> <Right>
+" imap <a-h> <Left>
 imap <c-l> <Right>
-" imap <c-h> <Left>
+imap <c-h> <Left>
 " imap <a-j> <Down>
 " imap <a-k> <Down>
 
