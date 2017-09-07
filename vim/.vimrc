@@ -132,7 +132,8 @@ set guioptions-=m
 " set guifont=DejaVu\ Sans\ Mono\ 10
 " set guifont=Liberation\ Mono\ 9.5
 " set guifont=Monospace\ 10
-set guifont=Liberation\ Mono\ 10
+" set guifont=Liberation\ Mono\ 10
+set guifont=Ubuntu\ Mono\ 10
 
 " Hide the mouse pointer while typing
 set mousehide
