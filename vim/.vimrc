@@ -133,7 +133,7 @@ set guioptions-=m
 " set guifont=Liberation\ Mono\ 9.5
 " set guifont=Monospace\ 10
 " set guifont=Liberation\ Mono\ 10
-set guifont=Ubuntu\ Mono\ 10
+set guifont=Ubuntu\ Mono\ 11
 
 " Hide the mouse pointer while typing
 set mousehide
@@ -303,7 +303,8 @@ let g:tagbar_usearrows = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug: Slimux
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <leader><leader>r :w<CR> :SlimuxSendKeysLast<CR>
+" nmap <leader><leader>r :w<CR> :SlimuxSendKeysLast<CR>
+nmap <leader>r<leader> :w<CR> :SlimuxSendKeysLast<CR>
 imap <M-9> <C-\><C-o>:w<CR><C-\><C-o>:SlimuxSendKeysLast<CR>
 nmap <M-9> :w<CR>:SlimuxSendKeysLast<cr>
 
@@ -318,7 +319,7 @@ nmap <leader>cc :SlimuxSendKeysConfigure<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug: HardTime
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:hardtime_default_on = 1
+let g:hardtime_default_on = 0
 let g:hardtime_allow_different_key = 1
 let g:hardtime_maxcount = 3
 
