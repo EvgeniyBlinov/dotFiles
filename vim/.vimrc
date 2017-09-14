@@ -434,7 +434,8 @@ imap <C-BS> <C-W>
 " imap <a-l> <Right>
 " imap <a-h> <Left>
 imap <c-l> <Right>
-imap <c-h> <Left>
+" imap <c-h> <Backspace>
+" imap <c-h> <Left>
 " imap <a-j> <Down>
 " imap <a-k> <Down>
 
