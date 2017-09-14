@@ -308,8 +308,8 @@ nmap <leader>r<leader> :w<CR> :SlimuxSendKeysLast<CR>
 imap <M-9> <C-\><C-o>:w<CR><C-\><C-o>:SlimuxSendKeysLast<CR>
 nmap <M-9> :w<CR>:SlimuxSendKeysLast<cr>
 
-imap <F9> <C-\><C-o>:w<CR><C-\><C-o>:SlimuxSendKeysLast<CR>
-nmap <F9> :w<CR>:SlimuxSendKeysLast<cr>
+imap <F7> <C-\><C-o>:w<CR><C-\><C-o>:SlimuxSendKeysLast<CR>
+nmap <F7> :w<CR>:SlimuxSendKeysLast<cr>
 
 " imap <leader><leader>r <ESC>:w<CR> :SlimuxSendKeysLast<CR> :startinsert<CR>
 map <leader>kk :SlimuxSendKeysPrompt<CR>
