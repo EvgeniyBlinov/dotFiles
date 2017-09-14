@@ -262,7 +262,10 @@ let g:jedi#rename_command = ""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug: NerdTree
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let NERDTreeIgnore=['\~$', '\.pyc$', ]
+let g:NERDTreeIgnore=['\~$', '\.pyc$', ]
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeWinSize=50
 nnoremap <F2> :NERDTreeToggle<cr>
 nmap <leader><leader>f :NERDTreeFind<CR>
 nmap mf :NERDTreeFind<CR>
