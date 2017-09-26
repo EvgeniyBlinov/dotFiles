@@ -146,3 +146,7 @@ alias vpnwork='sudo openvpn --config ~/Dropbox/ADCOMBO/openvpn_config/adcombo-ra
 
 [ -f ~/Dropbox/dotFiles/zsh/zshrc_local.zsh ] && source ~/Dropbox/dotFiles/zsh/zshrc_local.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export NVM_DIR="/home/mor/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+source $HOME/.zshenv
