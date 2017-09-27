@@ -267,7 +267,7 @@ let g:NERDTreeMinimalUI = 1
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeWinSize=50
 nnoremap <F2> :NERDTreeToggle<cr>
-nmap <leader><leader>f :NERDTreeFind<CR>
+" nmap <leader><leader>f :NERDTreeFind<CR>
 nmap mf :NERDTreeFind<CR>
 
 
@@ -307,7 +307,7 @@ let g:tagbar_usearrows = 1
 " Plug: Slimux
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nmap <leader><leader>r :w<CR> :SlimuxSendKeysLast<CR>
-nmap <leader>r<leader> :w<CR> :SlimuxSendKeysLast<CR>
+" nmap <leader>r<leader> :w<CR> :SlimuxSendKeysLast<CR>
 imap <M-9> <C-\><C-o>:w<CR><C-\><C-o>:SlimuxSendKeysLast<CR>
 nmap <M-9> :w<CR>:SlimuxSendKeysLast<cr>
 
@@ -338,7 +338,8 @@ map  <buffer> <silent> <M-S>             <Plug>(IPython-RunLineAsTopLevel)
 xmap <buffer> <silent> <M-S>             <Plug>(IPython-RunLines)
 
 " cell это когда ###
-map  <buffer> <silent> <Leader><Leader>x <Plug>(IPython-RunCell)
+" map  <buffer> <silent> <Leader><Leader>x <Plug>(IPython-RunCell)
+map  <buffer> <silent> <Leader>x <Plug>(IPython-RunCell)
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -417,6 +418,9 @@ source ~/Dropbox/dotFiles/vim/vimrc_python.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " maps
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"quick save
+noremap ms :w<CR>
+
 map <c-c> "+y
 map <leader><c-v> "+p
 
