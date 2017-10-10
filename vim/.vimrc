@@ -220,6 +220,10 @@ map <F8> :emenu Encoding.<TAB>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call tcomment#DefineType('python',           '# %s'             )
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug: fugitive
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <F1> :Gblame<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug: easymotion
@@ -249,7 +253,8 @@ let python_highlight_all = 1
 " Plug: jedi
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:jedi#popup_on_dot = 1
-let g:jedi#use_tabs_not_buffers = 1
+" let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#use_tabs_not_buffers = 0
 let g:jedi#goto_command = "\'g"
 let g:jedi#goto_assignments_command = "\'d"
 let g:jedi#goto_definitions_command = ""
@@ -257,6 +262,7 @@ let g:jedi#documentation_command = "K"
 let g:jedi#usages_command = ""
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = ""
+nnoremap <F4> :call setreg('"', line('.'))<CR> :tabnew %<CR> :<C-r>"<CR>  
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
