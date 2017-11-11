@@ -197,7 +197,8 @@ if has('gui_running')
     colorscheme PaperColor
     hi Search guibg=Yellow guifg=Black 
 else
-    colorscheme elflord
+    " colorscheme elflord
+    colorscheme darkblue
 endif
 
 set encoding=utf-8
@@ -219,11 +220,12 @@ map <F8> :emenu Encoding.<TAB>
 " Plug: tcomment
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call tcomment#DefineType('python',           '# %s'             )
+call tcomment#DefineType('gdb',           '# %s'             )
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug: fugitive
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <F1> :Gblame<cr>
+nnoremap <F5> :Gblame<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug: easymotion
