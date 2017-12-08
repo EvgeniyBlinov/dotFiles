@@ -1,12 +1,18 @@
 set nocompatible
 filetype off
 
+if empty(glob('~/custom_vim/autoload/plug.vim'))
+  silent execute "!curl -fLo ~/custom_vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+
 set runtimepath+=~/custom_vim,~/custom_vim/autoload
 call plug#begin('~/custom_vim/plugged')
 " Plug 'joonty/vdebug'
 " Plug 'vim-scripts/mru.vim'
 "
 " colorscheme's ----------------
+Plug 'skielbasa/vim-material-monokai'
 Plug 'tpope/vim-sensible'
 Plug 'smurfd/winterd'
 Plug 'vim-scripts/solarized'
@@ -70,7 +76,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 Plug 'vim-scripts/cscope.vim'
-
+Plug 'thaerkh/vim-workspace'
 
 call plug#end()
 
@@ -194,7 +200,8 @@ endif
 syntax enable
 if has('gui_running')
     set background=dark
-    colorscheme PaperColor
+    " colorscheme PaperColor
+    colorscheme material-monokai
     hi Search guibg=Yellow guifg=Black 
 else
     " colorscheme elflord
