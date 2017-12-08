@@ -23,9 +23,24 @@ Plug 'whatyouhide/vim-gotham'
 Plug 'morhetz/gruvbox'
 " ------------------------------
 " Plug 'mhinz/vim-startify'
+"
+"
+Plug 'thaerkh/vim-workspace'
+
+"
+" `] `[ - прыгать вправо влево по меткам
+Plug 'kshenoy/vim-signature'
+"
+"
+" Plug 'fisadev/vim-isort'  { 'dir': '~/', 'do': 'pip install isort' }  "
+" биндит ctrl-i todo: придумай норм биндинг
+"
+Plug 'airblade/vim-rooter'
+Plug 'vim-scripts/nginx.vim'
+Plug 'vim-scripts/sudo.vim'
 Plug 'Konfekt/FastFold'
 Plug 'tmhedberg/simpylfold'
-Plug 'kien/rainbow_parentheses.vim'
+" Plug 'kien/rainbow_parentheses.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'elzr/vim-json'
 Plug 'hdima/python-syntax'
@@ -81,7 +96,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 Plug 'vim-scripts/cscope.vim'
-Plug 'thaerkh/vim-workspace'
 
 call plug#end()
 
@@ -426,6 +440,7 @@ let g:AutoPairsMapCh = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plug: vim-workspace
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ToggleWorkspace - создает удаляет воркспейс
 let g:workspace_autosave_always = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
