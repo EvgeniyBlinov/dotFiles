@@ -20,7 +20,12 @@ Plug 'vim-scripts/navajo-night'
 Plug 'sickill/vim-monokai'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'whatyouhide/vim-gotham'
+Plug 'morhetz/gruvbox'
 " ------------------------------
+" Plug 'mhinz/vim-startify'
+Plug 'Konfekt/FastFold'
+Plug 'tmhedberg/simpylfold'
+Plug 'kien/rainbow_parentheses.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'elzr/vim-json'
 Plug 'hdima/python-syntax'
@@ -146,7 +151,7 @@ set mousehide
 " When the page starts to scroll, keep the cursor 8 lines from
 " the top and 8 lines from the bottom
 set scrolloff=19
-" Allow the cursor to go in to "invalid" places 
+" Allow the cursor to go in to "invalid" places
 set virtualedit=all
 " Tabstops are 4 spaces
 set tabstop=4
@@ -201,8 +206,9 @@ syntax enable
 if has('gui_running')
     set background=dark
     " colorscheme PaperColor
-    colorscheme material-monokai
-    hi Search guibg=Yellow guifg=Black 
+    " colorscheme material-monokai
+    colorscheme gruvbox
+    hi Search guibg=Yellow guifg=Black
 else
     " colorscheme elflord
     colorscheme darkblue
@@ -271,7 +277,7 @@ let g:jedi#documentation_command = "K"
 let g:jedi#usages_command = ""
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = ""
-nnoremap <F4> :call setreg('"', line('.'))<CR> :tabnew %<CR> :<C-r>"<CR>  
+nnoremap <F4> :call setreg('"', line('.'))<CR> :tabnew %<CR> :<C-r>"<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -407,7 +413,7 @@ let g:dbext_default_buffer_lines = 15
 source ~/Dropbox/dotFiles/vim/vimrc_dbext.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug: EasyMotion
+" plug: easymotion
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 " let g:EasyMotion_do_shade = 1
@@ -416,6 +422,12 @@ let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 " Plug: auto-pairs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:AutoPairsMapCh = 0
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" plug: vim-workspace
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:workspace_autosave_always = 1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " python
@@ -451,7 +463,7 @@ vnoremap <c-l> 5l
 
 nnoremap j gj
 nnoremap k gk
- 
+
 imap <C-BS> <C-W>
 " imap <a-l> <Right>
 " imap <a-h> <Left>
