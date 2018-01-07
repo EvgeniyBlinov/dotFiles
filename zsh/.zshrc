@@ -1,11 +1,12 @@
 # ln -s ~/Dropbox/dotFiles/tmux/.tmux.conf .tmux.conf
-# ------------------------------------------------------------------
+------------------------------------------------------------------
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+If you come from bash you might have to change your $PATH.
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
- export ZSH=/home/mor/.oh-my-zsh
+Path to your oh-my-zsh installation.
+#  export ZSH=/home/mor/.oh-my-zsh
+ export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -150,3 +151,9 @@ alias vpnwork='sudo openvpn --config ~/Dropbox/ADCOMBO/openvpn_config/adcombo-ra
 export NVM_DIR="/home/mor/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 source $HOME/.zshenv
+
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+# echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+# source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+source /Users/mavostrykh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

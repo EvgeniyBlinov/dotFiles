@@ -28,7 +28,7 @@ Plug 'morhetz/gruvbox'
 Plug 'thaerkh/vim-workspace'
 
 "
-" `] `[ - прыгать вправо влево по меткам
+" ]` [` - прыгать вправо вверх вниз
 Plug 'kshenoy/vim-signature'
 "
 "
@@ -114,12 +114,31 @@ autocmd FileType vim map <buffer> <leader>rr :source %<CR>
 
 let mapleader = ","
 ca tn tabnew
+
+set nobackup
+set nowb
+set noswapfile
+
+set cryptmethod=blowfish2
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
 " command W w !sudo tee % > /dev/null
 
 set laststatus=2
-set clipboard=unnamedplus
+" в мак осе ломает yy
+
+" yank to clipboard
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+
+  if has("unnamedplus") " X11 support
+    set clipboard+=unnamedplus
+  endif
+endif
+"
+if has('gui_macvim')
+    set macmeta
+endif
 set modelines=0
 set ttyfast
 set ruler
@@ -159,6 +178,16 @@ set guioptions-=m
 " set guifont=Monospace\ 10
 " set guifont=Liberation\ Mono\ 10
 set guifont=Ubuntu\ Mono\ 11
+if has('gui_macvim')
+    " set guifont=Monaco:h12
+    " set guifont=Sarasa\ Mono\ SC:h12
+    " set guifont=Menlo:h12
+    " set guifont=Source\ Code\ Pro\ ExtraLight:h13
+    " set guifont=Source\ Code\ Pro\ ExtraLight:h13
+    " set guifont=Source\ Code\ Pro:h12
+    set guifont=Source\ Code\ Pro\ ExtraLight:h12
+endif
+
 
 " Hide the mouse pointer while typing
 set mousehide
@@ -216,6 +245,8 @@ if has("gui_running")
   nmap K :Man <cword><CR>
 endif
 
+se cursorline
+" se nocursorline
 syntax enable
 if has('gui_running')
     set background=dark
@@ -424,7 +455,7 @@ let g:dbext_default_pgsql_cmd_options        = ''
 let g:dbext_default_pgsql_extra              = ''
 let g:dbext_default_pgsql_pgpass             = expand('$home/.pgpass')
 let g:dbext_default_buffer_lines = 15
-source ~/Dropbox/dotFiles/vim/vimrc_dbext.vim
+" source ~/Dropbox/dotFiles/vim/vimrc_dbext.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plug: easymotion
@@ -447,7 +478,7 @@ let g:workspace_autosave_always = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " python
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-source ~/Dropbox/dotFiles/vim/vimrc_python.vim
+" source ~/Dropbox/dotFiles/vim/vimrc_python.vim
 
 " if has("python3")
 "     map <a-y> :py3 EvaluateCurrentRange()
