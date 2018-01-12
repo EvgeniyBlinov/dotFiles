@@ -75,7 +75,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'epeli/slimux'
 Plug 'vim-scripts/tComment'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 " Plug 'wmvanvliet/vim-ipython'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'ntpeters/vim-better-whitespace'
@@ -177,8 +177,8 @@ set guioptions-=m
 " set guifont=Liberation\ Mono\ 9.5
 " set guifont=Monospace\ 10
 " set guifont=Liberation\ Mono\ 10
-set guifont=Ubuntu\ Mono\ 11
 if has('gui_macvim')
+    set guioptions-=a
     " set guifont=Monaco:h12
     " set guifont=Sarasa\ Mono\ SC:h12
     " set guifont=Menlo:h12
@@ -186,6 +186,8 @@ if has('gui_macvim')
     " set guifont=Source\ Code\ Pro\ ExtraLight:h13
     " set guifont=Source\ Code\ Pro:h12
     set guifont=Source\ Code\ Pro\ ExtraLight:h12
+else
+    set guifont=Ubuntu\ Mono\ 11
 endif
 
 
@@ -533,3 +535,11 @@ vnoremap <M-9> :tabnext<cr>
 
 nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
 nnoremap <leader>l :call ToggleLocationList()<CR>
+
+
+" Use Ctrl+Space to do omnicompletion:
+if has("gui_running")
+    inoremap <C-Space> <C-x><C-o>
+else
+    inoremap <Nul> <C-x><C-o>
+endif

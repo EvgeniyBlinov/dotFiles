@@ -133,8 +133,8 @@ alias ack='ack --ignore-dir=venv --ignore-dir=build --ignore-dir=dist'
 alias anaconda_qtconsole='cd ~/Downloads/; /home/mor/anaconda2/bin/jupyter qtconsole --JupyterWidget.include_other_output=True --style=monokai'
 alias anaconda_web='cd ~/Downloads/; /home/mor/anaconda2/bin/jupyter notebook --no-browser'
 
-export WORK_PATH=/home/$USER/WORK_ADCOMBO
-export CDPATH=$WORK_PATH:~/Dropbox/
+export WORK_PATH=/home/$USER/SBER
+export CDPATH=$GOPATH/src/github.com/CodeTeam:$WORK_PATH:~/Dropbox/
 export ADCOMBO_CFG_NAME=development
 
 alias gopathhere='export "GOPATH=$PWD"'
