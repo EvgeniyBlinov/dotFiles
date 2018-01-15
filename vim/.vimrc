@@ -25,7 +25,8 @@ Plug 'morhetz/gruvbox'
 " Plug 'mhinz/vim-startify'
 "
 "
-Plug 'thaerkh/vim-workspace'
+" жуткое гавно никогда больше не ставь
+" Plug 'thaerkh/vim-workspace'
 
 "
 " ]` [` - прыгать вправо вверх вниз
@@ -75,7 +76,10 @@ Plug 'easymotion/vim-easymotion'
 Plug 'epeli/slimux'
 Plug 'vim-scripts/tComment'
 Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'jiangmiao/auto-pairs'
+
+Plug 'jiangmiao/auto-pairs'
+
+" Plug 'Raimondi/delimitMate'
 " Plug 'wmvanvliet/vim-ipython'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'ntpeters/vim-better-whitespace'
@@ -84,18 +88,20 @@ Plug 'matze/vim-move'
 Plug 'junegunn/gv.vim'
 Plug 'wincent/ferret'
 Plug 'davidhalter/jedi-vim'
-Plug '907th/vim-auto-save'
+" Plug '907th/vim-auto-save'
 
 Plug 'vim-scripts/Align'
 Plug 'vim-scripts/SQLUtilities'
 
 " Plug 'vim-syntastic/syntastic'
-Plug 'w0rp/ale'
+Plug 'w0r/ale'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 Plug 'vim-scripts/cscope.vim'
+" Plug 'mileszs/ack.vim'
+" Plug 'tpope/vim-scriptease'
 
 call plug#end()
 
