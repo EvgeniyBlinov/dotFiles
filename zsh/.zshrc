@@ -128,7 +128,7 @@ export HISTSIZE=999999999
 export SAVEHIST=$HISTSIZE
 setopt hist_ignore_all_dups
 
-alias ack='ack --ignore-dir=venv --ignore-dir=build --ignore-dir=dist'
+alias ack='ack --ignore-dir=venv --ignore-dir=build --ignore-dir=dist --ignore-dir=vendor '
 
 alias anaconda_qtconsole='cd ~/Downloads/; /home/mor/anaconda2/bin/jupyter qtconsole --JupyterWidget.include_other_output=True --style=monokai'
 alias anaconda_web='cd ~/Downloads/; /home/mor/anaconda2/bin/jupyter notebook --no-browser'

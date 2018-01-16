@@ -201,7 +201,7 @@ endif
 set mousehide
 " When the page starts to scroll, keep the cursor 8 lines from
 " the top and 8 lines from the bottom
-set scrolloff=19
+set scrolloff=15
 " Allow the cursor to go in to "invalid" places
 set virtualedit=all
 " Tabstops are 4 spaces
