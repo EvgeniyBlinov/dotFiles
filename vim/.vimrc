@@ -7,6 +7,8 @@ if empty(glob('~/custom_vim/autoload/plug.vim'))
 endif
 
 set runtimepath+=~/custom_vim,~/custom_vim/autoload
+set runtimepath+= ~/Dropbox/dotFiles/vim/my-snippets
+
 call plug#begin('~/custom_vim/plugged')
 " Plug 'joonty/vdebug'
 " Plug 'vim-scripts/mru.vim'
@@ -452,6 +454,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
+" let g:UltiSnipsSnippetDirectories=["UltiSnips", 'gosnippets/Ultisnips', '~/Dropbox/dotFiles/vim/snippets']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug: dbext
@@ -549,3 +552,4 @@ if has("gui_running")
 else
     inoremap <Nul> <C-x><C-o>
 endif
+
