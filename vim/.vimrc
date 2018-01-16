@@ -7,7 +7,7 @@ if empty(glob('~/custom_vim/autoload/plug.vim'))
 endif
 
 set runtimepath+=~/custom_vim,~/custom_vim/autoload
-set runtimepath+= ~/Dropbox/dotFiles/vim/my-snippets
+set runtimepath+=~/Dropbox/dotFiles/vim/my-snippets
 
 call plug#begin('~/custom_vim/plugged')
 " Plug 'joonty/vdebug'
