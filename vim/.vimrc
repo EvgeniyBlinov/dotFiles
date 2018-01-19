@@ -96,7 +96,7 @@ Plug 'vim-scripts/Align'
 Plug 'vim-scripts/SQLUtilities'
 
 " Plug 'vim-syntastic/syntastic'
-Plug 'w0r/ale'
+Plug 'w0rp/ale'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }

@@ -12,7 +12,8 @@ Path to your oh-my-zsh installation.
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
-
+# ZSH_THEME="gozilla"
+# ZSH_THEME="powerlevel9k/powerlevel9k"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -156,3 +157,12 @@ source $HOME/.zshenv
 # echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
 # source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source /Users/mavostrykh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#
+#
+#brew install zsh-autosuggestions
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=28
+bindkey '^ ' autosuggest-accept
+
+# for rabbit mq
+export PATH=/usr/local/Cellar/rabbitmq/3.6.9_1/sbin:$PATH
