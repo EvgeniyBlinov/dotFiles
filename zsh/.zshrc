@@ -165,4 +165,4 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=28
 bindkey '^ ' autosuggest-accept
 
 # for rabbit mq
-export PATH=/usr/local/Cellar/rabbitmq/3.6.9_1/sbin:$PATH
+export PATH=/usr/local/Cellar/rabbitmq/3.7.2/sbin:$PATH
