@@ -499,6 +499,7 @@ let g:workspace_autosave_always = 1
 "     map <a-y> :py EvaluateCurrentRange()
 " endif
 
+com! FormatJSON %!python -m json.tool
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " maps
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
