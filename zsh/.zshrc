@@ -146,9 +146,6 @@ alias gopathhere='export "GOPATH=$PWD"'
 alias vpnwork='sudo openvpn --config ~/Dropbox/ADCOMBO/openvpn_config/adcombo-razdva-routetocf.ovpn.bin'
 # alias vpnhomejira='sudo openvpn --config ~/Dropbox/ADCOMBO/openvpn_config/adcombo-razdva-defgw.ovpn.bin'
 
-[ -f ~/Dropbox/dotFiles/zsh/zshrc_local.zsh ] && source ~/Dropbox/dotFiles/zsh/zshrc_local.zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 export NVM_DIR="/home/mor/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 source $HOME/.zshenv
@@ -166,3 +163,7 @@ bindkey '^ ' autosuggest-accept
 
 # for rabbit mq
 export PATH=/usr/local/Cellar/rabbitmq/3.7.2/sbin:$PATH
+
+[ -f ~/Dropbox/dotFiles/zsh/zshrc_local.zsh ] && source ~/Dropbox/dotFiles/zsh/zshrc_local.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+

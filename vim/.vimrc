@@ -228,7 +228,14 @@ set confirm " использовать диалоги вместо сообще�
 
 set nowrap
 set nu
+
 set relativenumber
+" set norelativenumber
+se cursorline
+" se nocursorline
+set lazyredraw
+
+
 
 set cindent
 set cino=M1(0,W4
@@ -255,8 +262,6 @@ if has("gui_running")
   nmap K :Man <cword><CR>
 endif
 
-se cursorline
-" se nocursorline
 syntax enable
 if has('gui_running')
     set background=dark
@@ -504,7 +509,7 @@ com! FormatJSON %!python -m json.tool
 " maps
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "quick save
-noremap ms :w<CR>
+noremap ms :redraw!<CR> :w<CR>
 
 map <c-c> "+y
 map <leader><c-v> "+p
