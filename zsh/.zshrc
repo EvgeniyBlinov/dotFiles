@@ -89,6 +89,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+unsetopt share_history
 setopt menucomplete
 zstyle ':completion:*' menu select=1 _complete _ignored _approximate
 zstyle ':completion:*' menu select
@@ -156,14 +157,14 @@ source $HOME/.zshenv
 # source /Users/mavostrykh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #
 #
+#
 #brew install zsh-autosuggestions
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=28
 bindkey '^ ' autosuggest-accept
 
 # for rabbit mq
-export PATH=/usr/local/Cellar/rabbitmq/3.7.2/sbin:$PATH
-
+# export PATH=/usr/local/Cellar/rabbitmq/3.7.2/sbin:$PATH
 [ -f ~/Dropbox/dotFiles/zsh/zshrc_local.zsh ] && source ~/Dropbox/dotFiles/zsh/zshrc_local.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

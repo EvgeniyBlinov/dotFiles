@@ -100,10 +100,12 @@ Plug 'w0rp/ale'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'AndrewRadev/splitjoin.vim'
 
 Plug 'vim-scripts/cscope.vim'
 " Plug 'mileszs/ack.vim'
 " Plug 'tpope/vim-scriptease'
+Plug 'romainl/vim-qf'
 
 call plug#end()
 
@@ -440,7 +442,18 @@ let g:neocomplete#sources#syntax#min_keyword_length = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:go_bin_path = expand("~/.gotools")
 let g:go_fmt_command = "goimports"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_fmt_experimental = 1
 autocmd FileType go map <buffer> 'g <Plug>(go-def-tab)
+autocmd FileType go nmap <Leader><leader>a :GoAlternate<CR>
+autocmd FileType go nmap <Leader><leader>d :GoDeclsDir<CR>
+autocmd FileType go nmap <Leader><leader>r :GoReferrers<CR>
+autocmd FileType go nmap <Leader><leader>n :GoRename<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -491,6 +504,21 @@ let g:AutoPairsMapCh = 0
 let g:workspace_autosave_always = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" plug: vim-qf
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ack.vim-inspired mappings available only in location/quickfix windows:
+"
+"     s - open entry in a new horizontal window
+"     v - open entry in a new vertical window
+"     t - open entry in a new tab
+"     o - open entry and come back
+"     O - open entry and close the location/quickfix window
+"     p - open entry in a preview window
+let g:qf_mapping_ack_style = 1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " python
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -509,7 +537,7 @@ com! FormatJSON %!python -m json.tool
 " maps
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "quick save
-noremap ms :redraw!<CR> :w<CR>
+noremap ms :redraw!<CR>:w<CR>
 
 map <c-c> "+y
 map <leader><c-v> "+p
