@@ -107,6 +107,18 @@ Plug 'vim-scripts/cscope.vim'
 " Plug 'tpope/vim-scriptease'
 Plug 'romainl/vim-qf'
 
+" Key Mapping       Description
+"
+" <count>ai         (A)n (I)ndentation level and line above.
+" <count>ii         (I)nner (I)ndentation level (no line above).
+" <count>aI         (A)n (I)ndentation level and lines above/below.
+" <count>iI         (I)nner (I)ndentation level (no lines above/below).
+" Therefore:
+"
+"     Press vii to select all the lines of common indentation
+"     Press vai to select all the lines of common indentation and additionally the line which 'initializes' it
+Plug 'michaeljsmith/vim-indent-object'
+
 call plug#end()
 
 filetype plugin indent on
