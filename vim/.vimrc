@@ -108,7 +108,6 @@ Plug 'vim-scripts/cscope.vim'
 Plug 'romainl/vim-qf'
 
 " Key Mapping       Description
-"
 " <count>ai         (A)n (I)ndentation level and line above.
 " <count>ii         (I)nner (I)ndentation level (no line above).
 " <count>aI         (A)n (I)ndentation level and lines above/below.
@@ -166,8 +165,6 @@ set ttyfast
 set ruler
 " Why is this not a default
 set hidden
-" Don't update the display while executing macros
-set lazyredraw
 " At least let yourself know what mode you're in
 set showmode
 " Enable enhanced command-line completion. Presumes you have compiled
@@ -206,8 +203,8 @@ if has('gui_macvim')
     " set guifont=Menlo:h12
     " set guifont=Source\ Code\ Pro\ ExtraLight:h13
     " set guifont=Source\ Code\ Pro\ ExtraLight:h13
-    " set guifont=Source\ Code\ Pro:h12
-    set guifont=Source\ Code\ Pro\ ExtraLight:h12
+    set guifont=Source\ Code\ Pro:h12
+    " set guifont=Source\ Code\ Pro\ ExtraLight:h12
 else
     set guifont=Ubuntu\ Mono\ 11
 endif
@@ -245,8 +242,10 @@ set nu
 
 set relativenumber
 " set norelativenumber
-se cursorline
-" se nocursorline
+" se cursorline
+se nocursorline
+"
+" Don't update the display while executing macros
 set lazyredraw
 
 
