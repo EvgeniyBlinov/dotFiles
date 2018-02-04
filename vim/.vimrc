@@ -76,7 +76,6 @@ Plug 'epeli/slimux'
 Plug 'vim-scripts/tComment'
 Plug 'ctrlpvim/ctrlp.vim'
 
-Plug 'jiangmiao/auto-pairs'
 
 " Plug 'Raimondi/delimitMate'
 " Plug 'wmvanvliet/vim-ipython'
@@ -117,15 +116,25 @@ Plug 'romainl/vim-qf'
 Plug 'michaeljsmith/vim-indent-object'
 "--------------------------------------------------------------------------------------------------------------
 
-" turn off cos maybe produce lag on macos
+" TURN OFF cos maybe produce lag on macos
+"
 " Plug 'shougo/neocomplete.vim'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
+" Plug 'jiangmiao/auto-pairs'
 
 " unused
 " Plug 'ryanss/vim-hackernews'
 
 call plug#end()
+
+"""DEBUG""""""""""""""""""""
+" set verbosefile=/tmp/vim_verbose.log
+" set verbose=9
+"""""""""""""""""""""""""""""""
+" SPEED UP MAC OS !!!!!!!!!!!!!11
+let g:matchparen_timeout = 10
+let g:matchparen_insert_timeout = 10
 
 filetype plugin indent on
 syntax on
