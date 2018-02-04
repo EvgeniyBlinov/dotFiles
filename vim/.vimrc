@@ -14,15 +14,17 @@ call plug#begin('~/custom_vim/plugged')
 " Plug 'vim-scripts/mru.vim'
 "
 " colorscheme's ----------------
-Plug 'skielbasa/vim-material-monokai'
-Plug 'tpope/vim-sensible'
-Plug 'smurfd/winterd'
-Plug 'vim-scripts/solarized'
+"
+" Plug 'skielbasa/vim-material-monokai'
+" Plug 'tpope/vim-sensible'
+" Plug 'smurfd/winterd'
+" Plug 'vim-scripts/solarized'
+" Plug 'whatyouhide/vim-gotham'
+
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'morhetz/gruvbox'
 Plug 'vim-scripts/navajo-night'
 Plug 'sickill/vim-monokai'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'whatyouhide/vim-gotham'
-Plug 'morhetz/gruvbox'
 " ------------------------------
 " Plug 'mhinz/vim-startify'
 "
@@ -48,7 +50,6 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'elzr/vim-json'
 Plug 'hdima/python-syntax'
 
-Plug 'ryanss/vim-hackernews'
 
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
@@ -63,10 +64,6 @@ Plug 'vim-scripts/vim-javascript'
 Plug 'vim-scripts/vim-jsbeautify'
 
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-Plug 'shougo/neocomplete.vim'
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 Plug 'SirVer/ultisnips'
@@ -85,7 +82,7 @@ Plug 'jiangmiao/auto-pairs'
 " Plug 'wmvanvliet/vim-ipython'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'takac/vim-hardtime'
+" Plug 'takac/vim-hardtime'
 Plug 'matze/vim-move'
 Plug 'junegunn/gv.vim'
 Plug 'wincent/ferret'
@@ -107,6 +104,7 @@ Plug 'vim-scripts/cscope.vim'
 " Plug 'tpope/vim-scriptease'
 Plug 'romainl/vim-qf'
 
+"--------------------------------------------------------------------------------------------------------------
 " Key Mapping       Description
 " <count>ai         (A)n (I)ndentation level and line above.
 " <count>ii         (I)nner (I)ndentation level (no line above).
@@ -117,6 +115,15 @@ Plug 'romainl/vim-qf'
 "     Press vii to select all the lines of common indentation
 "     Press vai to select all the lines of common indentation and additionally the line which 'initializes' it
 Plug 'michaeljsmith/vim-indent-object'
+"--------------------------------------------------------------------------------------------------------------
+
+" turn off cos maybe produce lag on macos
+" Plug 'shougo/neocomplete.vim'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+
+" unused
+" Plug 'ryanss/vim-hackernews'
 
 call plug#end()
 
@@ -240,8 +247,8 @@ set confirm " использовать диалоги вместо сообще�
 set nowrap
 set nu
 
-set relativenumber
-" set norelativenumber
+" set relativenumber
+set norelativenumber
 " se cursorline
 se nocursorline
 "
@@ -297,11 +304,13 @@ menu Encoding.CP866    :e ++enc=cp866<CR>
 menu Encoding.KOI8-U   :e ++enc=koi8-u<CR>
 map <F8> :emenu Encoding.<TAB>
 
-
-" Подсвечиваем все строки шире 80
-" Подсвечиваем пробелы в конце строк
-
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug w0rp/ale
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:ale_fix_on_save = 1
+let g:ale_fixers = {'python': ['autopep8', 'isort', 'yapf', 'remove_trailing_lines', 'trim_whitespace']}
+let g:ale_python_autopep8_options = '--aggressive'
+nnoremap <F9> :ALEFix<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug: tcomment
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -533,7 +542,7 @@ let g:qf_mapping_ack_style = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " python
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" source ~/Dropbox/dotFiles/vim/vimrc_python.vim
+source ~/Dropbox/dotFiles/vim/vimrc_python.vim
 
 " if has("python3")
 "     map <a-y> :py3 EvaluateCurrentRange()

@@ -168,3 +168,4 @@ bindkey '^ ' autosuggest-accept
 [ -f ~/Dropbox/dotFiles/zsh/zshrc_local.zsh ] && source ~/Dropbox/dotFiles/zsh/zshrc_local.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export EDITOR='vim'
