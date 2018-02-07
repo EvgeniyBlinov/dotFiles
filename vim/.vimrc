@@ -121,7 +121,7 @@ Plug 'michaeljsmith/vim-indent-object'
 " Plug 'shougo/neocomplete.vim'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
-" Plug 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 
 " unused
 " Plug 'ryanss/vim-hackernews'
@@ -133,6 +133,9 @@ call plug#end()
 " set verbose=9
 """""""""""""""""""""""""""""""
 " SPEED UP MAC OS !!!!!!!!!!!!!11
+" ➜   Proxy git:(feature/REDB-198) defaults write -g InitialKeyRepeat -int 10
+" ➜   Proxy git:(feature/REDB-198) defaults write -g KeyRepeat -int 1
+" let loaded_matchparen = 1
 let g:matchparen_timeout = 10
 let g:matchparen_insert_timeout = 10
 
@@ -513,7 +516,7 @@ let g:dbext_default_pgsql_cmd_options        = ''
 let g:dbext_default_pgsql_extra              = ''
 let g:dbext_default_pgsql_pgpass             = expand('$home/.pgpass')
 let g:dbext_default_buffer_lines = 15
-" source ~/Dropbox/dotFiles/vim/vimrc_dbext.vim
+source ~/Dropbox/dotFiles/vim/vimrc_dbext.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plug: easymotion
