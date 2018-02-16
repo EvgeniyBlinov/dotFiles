@@ -56,7 +56,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker go golang pip python postgres redis-cli ssh-agent tmux vagrant virtualenv vim-interaction zsh-syntax-highlighting vi-mode)
+plugins=(git docker docker-compose go golang pip python postgres redis-cli ssh-agent tmux virtualenv vim-interaction zsh-syntax-highlighting vi-mode kubectl nmap jira iterm2 httpie colored-man-pages celery)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -163,9 +163,41 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=28
 bindkey '^ ' autosuggest-accept
 
+# Usage:
+#
+# docker-compose-watch --help
+# OPTIONS:
+#     -e, --exts         Comma-separated list of file extensions to watch (js,css,html)
+#     -f, --filter ...      Ignore all modifications except those matching the pattern
+#     -i, --ignore ...      Ignore modifications to paths matching the pattern
+#  docker-compose-watch -e '*.js' -i './api'
+# Starting api_worker_1
+# Starting api_postgrest_1
+# Attaching to api_worker_1, api_postgrest_1
+# [... updating a file ...]
+# Gracefully stopping... (press Ctrl+C again to force)
+# Stopping api_postgrest_1 ... done
+# Stopping api_worker_1 ... done
+# Starting api_worker_1
+# Starting api_postgrest_1
+function docker-compose-watch() {
+    local args;
+    if [[ $1 == "help" ]] || [[ $1 = "--help" ]]; then
+        watchexec --help | grep -A 3 "OPTIONS:";
+        return;
+    else
+        args='--filter "*/docker-compose.yml"' && [[ $1 ]] && args=$@;
+    fi
+    eval watchexec --restart $args -w $(pwd) "docker-compose up"
+}
+
+alias docker-compose-reload=docker-compose-watch;
+
+
 # for rabbit mq
 # export PATH=/usr/local/Cellar/rabbitmq/3.7.2/sbin:$PATH
 [ -f ~/Dropbox/dotFiles/zsh/zshrc_local.zsh ] && source ~/Dropbox/dotFiles/zsh/zshrc_local.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export EDITOR='vim'
+

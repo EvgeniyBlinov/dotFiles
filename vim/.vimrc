@@ -126,6 +126,16 @@ Plug 'jiangmiao/auto-pairs'
 " unused
 " Plug 'ryanss/vim-hackernews'
 
+" Want to turn fooBar into foo_bar? Press crs (coerce to snake_case).
+" MixedCase (crm), camelCase (crc), snake_case (crs), UPPER_CASE (cru),
+" dash-case (cr-), dot.case (cr.), space case (cr<space>), and Title Case (crt)
+" are all just 3 keystrokes away. These commands support repeat.vim.
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-repeat'
+Plug 'terryma/vim-expand-region'
+Plug 'godlygeek/tabular'
+Plug 'wellle/targets.vim'
+
 call plug#end()
 
 """DEBUG""""""""""""""""""""
@@ -320,7 +330,7 @@ map <F8> :emenu Encoding.<TAB>
 " Plug w0rp/ale
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " let g:ale_fix_on_save = 1
-let g:ale_fixers = {'python': ['autopep8', 'isort', 'yapf', 'remove_trailing_lines', 'trim_whitespace']}
+let g:ale_fixers = { 'python': ['autopep8', 'isort', 'yapf', 'remove_trailing_lines', 'trim_whitespace'], 'go': ['remove_trailing_lines', 'trim_whitespace'] }
 let g:ale_python_autopep8_options = '--aggressive'
 nnoremap <F9> :ALEFix<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
