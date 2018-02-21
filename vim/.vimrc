@@ -136,6 +136,9 @@ Plug 'terryma/vim-expand-region'
 Plug 'godlygeek/tabular'
 Plug 'wellle/targets.vim'
 
+Plug 'xolox/vim-session'
+Plug 'xolox/vim-misc'
+
 call plug#end()
 
 """DEBUG""""""""""""""""""""
@@ -163,7 +166,13 @@ autocmd FileType vim map <buffer> <leader>rr :source %<CR>
 
 
 let mapleader = ","
+
 ca tn tabnew
+ca pl py3 py_lib()
+ca os OpenSession
+
+let g:move_key_modifier = '<M-3>'
+
 
 set nobackup
 set nowb
