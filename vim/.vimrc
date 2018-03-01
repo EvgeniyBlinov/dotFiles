@@ -170,6 +170,8 @@ let mapleader = ","
 ca tn tabnew
 ca pl py3 py_lib()
 ca os OpenSession
+ca ss SaveSession
+
 
 let g:move_key_modifier = '<M-3>'
 
