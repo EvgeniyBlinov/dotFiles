@@ -147,6 +147,8 @@ alias gopathhere='export "GOPATH=$PWD"'
 #
 alias vpnwork='sudo openvpn --config ~/Dropbox/ADCOMBO/openvpn_config/adcombo-razdva-routetocf.ovpn.bin'
 # alias vpnhomejira='sudo openvpn --config ~/Dropbox/ADCOMBO/openvpn_config/adcombo-razdva-defgw.ovpn.bin'
+#
+alias leotrain='python3 ~/Dropbox/lingualeo_api/haha.py'
 
 export NVM_DIR="/home/mor/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -161,7 +163,7 @@ source $HOME/.zshenv
 #
 #brew install zsh-autosuggestions
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=28
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=yellow,bold
 bindkey '^ ' autosuggest-accept
 
 # Usage:

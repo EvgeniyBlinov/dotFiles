@@ -280,8 +280,8 @@ set confirm " использовать диалоги вместо сообще�
 set nowrap
 set nu
 
-" set relativenumber
-set norelativenumber
+set relativenumber
+" set norelativenumber
 " se cursorline
 se nocursorline
 "
