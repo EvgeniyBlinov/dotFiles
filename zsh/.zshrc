@@ -80,7 +80,7 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# Senoremap ï t personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
@@ -183,19 +183,6 @@ bindkey '^ ' autosuggest-accept
 # Stopping api_worker_1 ... done
 # Starting api_worker_1
 # Starting api_postgrest_1
-function docker-compose-watch() {
-    local args;
-    if [[ $1 == "help" ]] || [[ $1 = "--help" ]]; then
-        watchexec --help | grep -A 3 "OPTIONS:";
-        return;
-    else
-        args='--filter "*/docker-compose.yml"' && [[ $1 ]] && args=$@;
-    fi
-    eval watchexec --restart $args -w $(pwd) "docker-compose up"
-}
-
-alias docker-compose-reload=docker-compose-watch;
-
 
 # for rabbit mq
 # export PATH=/usr/local/Cellar/rabbitmq/3.7.2/sbin:$PATH
