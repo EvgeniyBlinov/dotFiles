@@ -139,6 +139,16 @@ Plug 'wellle/targets.vim'
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
 
+" Plug 'luisjure/csound-vim'
+
+"""""""" Installation
+""""""""     gem install sonic-pi-cli
+"""""""" Usage
+""""""""     Sonic Pi must be running, as this is just a client.
+"""""""" sonic_pi play 50
+"""""""" sonic_pi sample :loop_breakbeat, rate: 0.5
+"""""""" sonic_pi stop
+Plug 'dermusikman/sonicpi.vim', {'do': 'gem install sonic-pi-cli'} 
 call plug#end()
 
 """DEBUG""""""""""""""""""""
@@ -280,8 +290,8 @@ set confirm " использовать диалоги вместо сообще�
 set nowrap
 set nu
 
-set relativenumber
-" set norelativenumber
+" set relativenumber
+set norelativenumber
 " se cursorline
 se nocursorline
 "
@@ -578,6 +588,20 @@ let g:workspace_autosave_always = 1
 "     O - open entry and close the location/quickfix window
 "     p - open entry in a preview window
 let g:qf_mapping_ack_style = 1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" cluisjure/csound-vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:csound_manual = "http://www.csounds.com/manual/"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" dermusikman/sonicpi.vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:sonicpi_keymaps_enabled = 0
+nnoremap <M-r> :SonicPiSendBuffer<CR>
+nnoremap <M-s> :SonicPiStop<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
