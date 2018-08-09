@@ -25,6 +25,10 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'morhetz/gruvbox'
 Plug 'vim-scripts/navajo-night'
 Plug 'sickill/vim-monokai'
+Plug 'challenger-deep-theme/vim'
+Plug 'keith/parsec.vim'
+Plug 'YorickPeterse/happy_hacking.vim'
+
 " ------------------------------
 " Plug 'mhinz/vim-startify'
 "
@@ -136,7 +140,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'godlygeek/tabular'
 Plug 'wellle/targets.vim'
 
-Plug 'xolox/vim-session'
+" Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
 
 " Plug 'luisjure/csound-vim'
@@ -148,7 +152,11 @@ Plug 'xolox/vim-misc'
 """""""" sonic_pi play 50
 """""""" sonic_pi sample :loop_breakbeat, rate: 0.5
 """""""" sonic_pi stop
-Plug 'dermusikman/sonicpi.vim', {'do': 'gem install sonic-pi-cli'} 
+" Plug 'dermusikman/sonicpi.vim', {'do': 'gem install sonic-pi-cli'} 
+
+Plug 'rking/ag.vim'
+Plug 'Chun-Yang/vim-action-ag'
+Plug 'tpope/vim-dadbod'
 call plug#end()
 
 """DEBUG""""""""""""""""""""
@@ -179,8 +187,8 @@ let mapleader = ","
 
 ca tn tabnew
 ca pl py3 py_lib()
-ca os OpenSession
-ca ss SaveSession
+" ca os OpenSession
+" ca ss SaveSession
 
 
 let g:move_key_modifier = '<M-3>'
@@ -373,17 +381,6 @@ let g:EasyMotion_do_shade = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug: CtlrP
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ctrlp_max_files=0
-let g:ctrlp_max_depth=40
-let g:ctrlp_working_path_mode = 'w'
-let g:ctrlp_root_markers = ['WORK_ADCOMBO', 'mor']
-let g:ctrlp_use_caching = 1
-let g:ctrlp_by_filename = 1
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug: python-syntax
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let python_highlight_all = 1
@@ -437,7 +434,7 @@ nmap <Leader><Leader>m :CtrlPMRUFiles<CR>
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
 let g:ctrlp_working_path_mode = 'w'
-let g:ctrlp_root_markers = ['WORK_ADCOMBO', 'mor']
+let g:ctrlp_root_markers = ['WORK_ADCOMBO', 'mor', 'mavostrykh', 'SBER', 'SBER_STUFF']
 " подумай как go поступить
 let g:ctrlp_use_caching = 1
 let g:ctrlp_by_filename = 1
@@ -593,15 +590,25 @@ let g:qf_mapping_ack_style = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " cluisjure/csound-vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:csound_manual = "http://www.csounds.com/manual/"
+" let g:csound_manual = "http://www.csounds.com/manual/"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " dermusikman/sonicpi.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:sonicpi_keymaps_enabled = 0
-nnoremap <M-r> :SonicPiSendBuffer<CR>
-nnoremap <M-s> :SonicPiStop<CR>
+" let g:sonicpi_keymaps_enabled = 0
+" nnoremap <M-r> :SonicPiSendBuffer<CR>
+" nnoremap <M-s> :SonicPiStop<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug: rking/ag.vim 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+ " use * to search current word in normal mode
+nmap # <Plug>AgActionWord
+" use * to search selected text in visual mode
+vmap # <Plug>AgActionVisual
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
