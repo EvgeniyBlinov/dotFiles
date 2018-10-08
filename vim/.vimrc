@@ -208,15 +208,6 @@ set cryptmethod=blowfish2
 
 set laststatus=2
 " в мак осе ломает yy
-
-" yank to clipboard
-if has("clipboard")
-  set clipboard=unnamed " copy to the system clipboard
-
-  if has("unnamedplus") " X11 support
-    set clipboard+=unnamedplus
-  endif
-endif
 "
 if has('gui_macvim')
     set macmeta
@@ -649,8 +640,21 @@ com! FormatJSON %!python -m json.tool
 "quick save
 noremap ms :redraw!<CR>:w<CR>
 
+"- clipboard ---------------------------------------------
 map <c-c> "+y
 map <leader><c-v> "+p
+
+
+" yank to clipboard
+set clipboard=unnamed " copy to the system clipboard
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+
+  if has("unnamedplus") " X11 support
+    set clipboard+=unnamedplus
+  endif
+endif
+"---------------------------------------------------------
 
 nnoremap <c-h> 5h
 nnoremap <c-j> 5j
