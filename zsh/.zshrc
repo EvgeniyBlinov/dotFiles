@@ -1,12 +1,26 @@
 # ln -s ~/Dropbox/dotFiles/zsh/.zshrc .zshrc
 # ------------------------------------------------------------------
 
+case `uname` in
+  Darwin)
+	# commands for OS X go here
+  ;;
+  Linux)
+  # commands for Linux go here
+	alias pbcopy='xclip -selection clipboard'
+	alias pbpaste='xclip -selection clipboard -o'
+  ;;
+  FreeBSD)
+  # commands for FreeBSD go here
+  ;;
+esac
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 #  export ZSH=/home/mor/.oh-my-zsh
- export ZSH=~/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
