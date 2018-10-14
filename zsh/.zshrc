@@ -1,4 +1,4 @@
-# ln -s ~/Dropbox/dotFiles/tmux/.tmux.conf .tmux.conf
+# ln -s ~/Dropbox/dotFiles/zsh/.zshrc .zshrc
 # ------------------------------------------------------------------
 
 # If you come from bash you might have to change your $PATH.
