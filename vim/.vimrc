@@ -1,3 +1,6 @@
+" ln -s ~/Dropbox/dotFiles/vim/.vimrc .vimrc
+" mkdir ~/custom_vim/
+
 set nocompatible
 filetype off
 
@@ -159,7 +162,7 @@ Plug 'Chun-Yang/vim-action-ag'
 " Plug 'tpope/vim-dadbod'
 
 " CTRL-N !!!!! awesome
-Plug 'terryma/vim-multiple-cursors'
+" Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
 """DEBUG""""""""""""""""""""

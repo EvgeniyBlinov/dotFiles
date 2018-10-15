@@ -2,17 +2,22 @@
 # ------------------------------------------------------------------
 
 case `uname` in
-  Darwin)
-	# commands for OS X go here
-  ;;
-  Linux)
-  # commands for Linux go here
-	alias pbcopy='xclip -selection clipboard'
-	alias pbpaste='xclip -selection clipboard -o'
-  ;;
-  FreeBSD)
-  # commands for FreeBSD go here
-  ;;
+    Darwin)
+        # commands for OS X go here
+        #brew install zsh-autosuggestions
+        source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+        ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=yellow,bold
+        bindkey '^ ' autosuggest-accept
+
+        ;;
+    Linux)
+        # commands for Linux go here
+        alias pbcopy='xclip -selection clipboard';
+        alias pbpaste='xclip -selection clipboard -o';
+        ;;
+    FreeBSD)
+      # commands for FreeBSD go here
+      ;;
 esac
 
 # If you come from bash you might have to change your $PATH.
@@ -175,11 +180,6 @@ source $HOME/.zshenv
 #
 #
 #
-#brew install zsh-autosuggestions
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=yellow,bold
-bindkey '^ ' autosuggest-accept
-
 # Usage:
 #
 # docker-compose-watch --help
