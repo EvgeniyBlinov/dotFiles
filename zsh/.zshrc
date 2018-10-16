@@ -1,24 +1,23 @@
 # ln -s ~/Dropbox/dotFiles/zsh/.zshrc .zshrc
 # ------------------------------------------------------------------
-
 case `uname` in
     Darwin)
         # commands for OS X go here
         #brew install zsh-autosuggestions
         source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
         ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=yellow,bold
-        bindkey '^ ' autosuggest-accept
-
         ;;
     Linux)
         # commands for Linux go here
         alias pbcopy='xclip -selection clipboard';
         alias pbpaste='xclip -selection clipboard -o';
+        source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh;
         ;;
     FreeBSD)
       # commands for FreeBSD go here
       ;;
 esac
+
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -126,6 +125,8 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
+
+bindkey '^ ' autosuggest-accept
 
 function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '

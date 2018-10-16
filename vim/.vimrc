@@ -163,6 +163,10 @@ Plug 'Chun-Yang/vim-action-ag'
 
 " CTRL-N !!!!! awesome
 " Plug 'terryma/vim-multiple-cursors'
+
+
+Plug 'nelstrom/vim-visual-star-search'
+Plug 'Olical/vim-enmasse'
 call plug#end()
 
 """DEBUG""""""""""""""""""""
