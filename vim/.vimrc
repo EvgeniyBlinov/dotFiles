@@ -712,3 +712,8 @@ else
     inoremap <Nul> <C-x><C-o>
 endif
 
+"learn vim hard way-------------------------------------------------
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+inoremap jk <esc>
+inoremap <c-[> <nop>
