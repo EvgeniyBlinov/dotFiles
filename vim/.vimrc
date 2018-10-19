@@ -305,8 +305,8 @@ set confirm " использовать диалоги вместо сообще�
 set nowrap
 set nu
 
-" set relativenumber
-set norelativenumber
+set relativenumber
+" set norelativenumber
 " se cursorline
 se nocursorline
 "
@@ -613,9 +613,9 @@ let g:qf_mapping_ack_style = 1
 " Plug: rking/ag.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
  " use * to search current word in normal mode
-nmap # <Plug>AgActionWord
+nnoremap # <Plug>AgActionWord
 " use * to search selected text in visual mode
-vmap # <Plug>AgActionVisual
+vnoremap # <Plug>AgActionVisual
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -654,8 +654,8 @@ com! FormatJSON %!python -m json.tool
 noremap ms :redraw!<CR>:w<CR>
 
 "- clipboard ---------------------------------------------
-map <c-c> "+y
-map <leader><c-v> "+p
+noremap <c-c> "+y
+noremap <leader><c-v> "+p
 
 
 " yank to clipboard
@@ -682,10 +682,10 @@ vnoremap <c-l> 5l
 nnoremap j gj
 nnoremap k gk
 
-imap <C-BS> <C-W>
+inoremap <C-BS> <C-W>
 " imap <a-l> <Right>
 " imap <a-h> <Left>
-imap <c-l> <Right>
+inoremap <c-l> <Right>
 " imap <c-h> <Backspace>
 " imap <c-h> <Left>
 " imap <a-j> <Down>
