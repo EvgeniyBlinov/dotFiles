@@ -155,7 +155,7 @@ Plug 'xolox/vim-misc'
 """""""" sonic_pi play 50
 """""""" sonic_pi sample :loop_breakbeat, rate: 0.5
 """""""" sonic_pi stop
-" Plug 'dermusikman/sonicpi.vim', {'do': 'gem install sonic-pi-cli'} 
+" Plug 'dermusikman/sonicpi.vim', {'do': 'gem install sonic-pi-cli'}
 
 Plug 'rking/ag.vim'
 Plug 'Chun-Yang/vim-action-ag'
@@ -163,7 +163,6 @@ Plug 'Chun-Yang/vim-action-ag'
 
 " CTRL-N !!!!! awesome
 " Plug 'terryma/vim-multiple-cursors'
-
 
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'Olical/vim-enmasse'
@@ -192,6 +191,13 @@ autocmd FileType python match OverLength /\(\%81v.\+\)\|\( \+$\)/
 autocmd FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 autocmd FileType vim map <buffer> <leader>rr :source %<CR>
 
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+autocmd BufWritePre *.py :call TrimWhitespace()
 
 let mapleader = ","
 
@@ -604,7 +610,7 @@ let g:qf_mapping_ack_style = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug: rking/ag.vim 
+" Plug: rking/ag.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
  " use * to search current word in normal mode
 nmap # <Plug>AgActionWord
