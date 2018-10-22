@@ -313,8 +313,8 @@ set confirm " использовать диалоги вместо сообще�
 set nowrap
 set nu
 
-set relativenumber
-" set norelativenumber
+" set relativenumber
+set norelativenumber
 " se cursorline
 se nocursorline
 "
@@ -625,9 +625,9 @@ let g:qf_mapping_ack_style = 1
 " Plug: rking/ag.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
  " use * to search current word in normal mode
-nnoremap # <Plug>AgActionWord
+nmap # <Plug>AgActionWord
 " use * to search selected text in visual mode
-vnoremap # <Plug>AgActionVisual
+vmap # <Plug>AgActionVisual
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
