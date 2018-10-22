@@ -182,14 +182,6 @@ let g:matchparen_insert_timeout = 10
 filetype plugin indent on
 syntax on
 
-autocmd FileType cpp highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-autocmd FileType cpp match OverLength /\(\%81v.\+\)\|\( \+$\)/
-autocmd FileType c highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-autocmd FileType c match OverLength /\(\%81v.\+\)\|\( \+$\)/
-autocmd FileType python highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-autocmd FileType python match OverLength /\(\%81v.\+\)\|\( \+$\)/
-autocmd FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
-autocmd FileType vim map <buffer> <leader>rr :source %<CR>
 
 fun! TrimWhitespace()
     let l:save = winsaveview()
@@ -197,9 +189,25 @@ fun! TrimWhitespace()
     call winrestview(l:save)
 endfun
 
-autocmd BufWritePre *.py :call TrimWhitespace()
+augroup main_autocmd
+    autocmd!
+    autocmd FileType cpp highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+    autocmd FileType cpp match OverLength /\(\%81v.\+\)\|\( \+$\)/
+    autocmd FileType c highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+    autocmd FileType c match OverLength /\(\%81v.\+\)\|\( \+$\)/
+    autocmd FileType python highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+    autocmd FileType python match OverLength /\(\%81v.\+\)\|\( \+$\)/
+    autocmd FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+    autocmd FileType vim map <buffer> <leader>rr :source %<CR>
+
+    autocmd BufWritePre *.py :call TrimWhitespace()
+augroup END
 
 let mapleader = ","
+inoremap jk <esc>
+vnoremap jk <esc>
+inoremap <c-[> <nop>
+vnoremap <c-[> <nop>
 
 ca tn tabnew
 ca pl py3 py_lib()
@@ -524,11 +532,15 @@ let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 let g:go_fmt_experimental = 1
-autocmd FileType go map <buffer> 'g <Plug>(go-def-tab)
-autocmd FileType go nmap <Leader><leader>a :GoAlternate<CR>
-autocmd FileType go nmap <Leader><leader>d :GoDeclsDir<CR>
-autocmd FileType go nmap <Leader><leader>r :GoReferrers<CR>
-autocmd FileType go nmap <Leader><leader>n :GoRename<CR>
+
+augroup filetype_go
+    autocmd!
+    autocmd FileType go map <buffer> 'g <Plug>(go-def-tab)
+    autocmd FileType go nmap <Leader><leader>a :GoAlternate<CR>
+    autocmd FileType go nmap <Leader><leader>d :GoDeclsDir<CR>
+    autocmd FileType go nmap <Leader><leader>r :GoReferrers<CR>
+    autocmd FileType go nmap <Leader><leader>n :GoRename<CR>
+augroup END
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -712,8 +724,3 @@ else
     inoremap <Nul> <C-x><C-o>
 endif
 
-"learn vim hard way-------------------------------------------------
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
-inoremap jk <esc>
-inoremap <c-[> <nop>
