@@ -388,14 +388,6 @@ call tcomment#DefineType('gdb',           '# %s'             )
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <F5> :Gblame<cr>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug: easymotion
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
-let g:EasyMotion_do_shade = 1
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug: python-syntax
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let python_highlight_all = 1
@@ -458,9 +450,16 @@ let g:ctrlp_by_filename = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug: EasyMotion
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <Leader><Leader> <Plug>(easymotion-prefix)
+" map <Leader><Leader> <Plug>(easymotion-prefix)
+" map <c-m> <Plug>(easymotion-prefix)
+map s <Plug>(easymotion-prefix)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
+let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
+let g:EasyMotion_do_shade = 1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug: Tagbar
@@ -573,13 +572,6 @@ let g:dbext_default_pgsql_pgpass             = expand('$home/.pgpass')
 let g:dbext_default_buffer_lines = 15
 source ~/Dropbox/dotFiles/vim/vimrc_dbext.vim
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" plug: easymotion
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
-" let g:EasyMotion_do_shade = 1
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug: auto-pairs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:AutoPairsMapCh = 0
@@ -681,15 +673,15 @@ if has("clipboard")
 endif
 "---------------------------------------------------------
 
-nnoremap <c-h> 5h
+" nnoremap <c-h> 5h
 nnoremap <c-j> 5j
 nnoremap <c-k> 5k
-nnoremap <c-l> 5l
+" nnoremap <c-l> 5l
 
-vnoremap <c-h> 5h
+" vnoremap <c-h> 5h
 vnoremap <c-j> 5j
 vnoremap <c-k> 5k
-vnoremap <c-l> 5l
+" vnoremap <c-l> 5l
 
 nnoremap j gj
 nnoremap k gk
