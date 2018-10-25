@@ -1,6 +1,6 @@
 " ln -s ~/Dropbox/dotFiles/vim/.vimrc .vimrc
 " mkdir ~/custom_vim/
-
+"
 set nocompatible
 filetype off
 
@@ -79,7 +79,7 @@ Plug 'honza/vim-snippets'
 Plug 'ervandew/supertab'
 
 Plug 'easymotion/vim-easymotion'
-Plug 'epeli/slimux'
+" Plug 'epeli/slimux'
 Plug 'vim-scripts/tComment'
 Plug 'ctrlpvim/ctrlp.vim'
 
@@ -92,7 +92,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'matze/vim-move'
 Plug 'junegunn/gv.vim'
 " Plug 'wincent/ferret'
-Plug 'davidhalter/jedi-vim'
 " Plug '907th/vim-auto-save'
 
 " Plug 'vim-scripts/Align'
@@ -102,9 +101,6 @@ Plug 'vim-scripts/SQLUtilities'
 
 " Plug 'vim-syntastic/syntastic'
 Plug 'w0rp/ale'
-
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
 
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'AndrewRadev/splitjoin.vim'
@@ -148,7 +144,7 @@ Plug 'godlygeek/tabular'
 Plug 'wellle/targets.vim'
 
 " Plug 'xolox/vim-session'
-Plug 'xolox/vim-misc'
+" Plug 'xolox/vim-misc'
 
 " Plug 'luisjure/csound-vim'
 
@@ -170,6 +166,16 @@ Plug 'Chun-Yang/vim-action-ag'
 
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'Olical/vim-enmasse'
+
+" Plug 'python-mode/python-mode', { 'branch': 'develop' }
+Plug 'kana/vim-textobj-user'
+Plug 'bps/vim-textobj-python'
+"
+"
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+Plug 'davidhalter/jedi-vim'
 call plug#end()
 
 """DEBUG""""""""""""""""""""
@@ -439,8 +445,8 @@ nmap mf :NERDTreeFind<CR>
 " Plug: CtrlP
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ctrlp_map = '<Leader>p'
-nmap <Leader>b :CtrlPBuffer<CR>
-nmap <Leader>p :CtrlP<CR>
+" nmap <Leader>b :CtrlPBuffer<CR>
+" nmap <Leader>p :CtrlP<CR>
 nmap <Leader><Leader>m :CtrlPMRUFiles<CR>
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
@@ -452,6 +458,33 @@ let g:ctrlp_by_filename = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug: junegunn/fzf
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+command! -bang MyFzf call fzf#run(fzf#wrap('lalala', {'dir': '~/SBER', 'options': '--query "!^venv_ .py$ "'}, <bang>0))
+nnoremap <leader>zz :MyFzf<CR>
+
+nmap <Leader>b :Buffers<CR>
+
+nmap <Leader><leader>s :Snippets<CR>
+nmap <Leader><leader>l :Lines<CR>
+nmap <Leader>t :Tags<CR>
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+" Advanced customization using autoload functions
+inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug: EasyMotion
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " map <Leader><Leader> <Plug>(easymotion-prefix)
@@ -460,7 +493,8 @@ map s <Plug>(easymotion-prefix)
 map <leader><leader> <Plug>(easymotion-prefix)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
-let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
+" let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
+let g:EasyMotion_keys = 'asdfgwerthjkluiovcm,;'
 let g:EasyMotion_do_shade = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -477,16 +511,18 @@ let g:tagbar_usearrows = 1
 " Plug: Slimux
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nmap <leader><leader>r :w<CR> :SlimuxSendKeysLast<CR>
+
+
 " nmap <leader>r<leader> :w<CR> :SlimuxSendKeysLast<CR>
-imap <M-9> <C-\><C-o>:w<CR><C-\><C-o>:SlimuxSendKeysLast<CR>
-nmap <M-9> :w<CR>:SlimuxSendKeysLast<cr>
-
-imap <F6> <C-\><C-o>:w<CR><C-\><C-o>:SlimuxSendKeysLast<CR>
-nmap <F6> :w<CR>:SlimuxSendKeysLast<cr>
-
-" imap <leader><leader>r <ESC>:w<CR> :SlimuxSendKeysLast<CR> :startinsert<CR>
-map <leader>kk :SlimuxSendKeysPrompt<CR>
-nmap <leader>cc :SlimuxSendKeysConfigure<CR>
+" imap <M-9> <C-\><C-o>:w<CR><C-\><C-o>:SlimuxSendKeysLast<CR>
+" nmap <M-9> :w<CR>:SlimuxSendKeysLast<cr>
+"
+" imap <F6> <C-\><C-o>:w<CR><C-\><C-o>:SlimuxSendKeysLast<CR>
+" nmap <F6> :w<CR>:SlimuxSendKeysLast<cr>
+"
+" " imap <leader><leader>r <ESC>:w<CR> :SlimuxSendKeysLast<CR> :startinsert<CR>
+" map <leader>kk :SlimuxSendKeysPrompt<CR>
+" nmap <leader>cc :SlimuxSendKeysConfigure<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -631,12 +667,6 @@ vmap # <Plug>AgActionVisual
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug: junegunn/fzf
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-command! -bang MyFzf call fzf#run(fzf#wrap('lalala', {'dir': '~/SBER', 'options': '--query "!^venv_ .py$ "'}, <bang>0))
-nnoremap <leader>zz :MyFzf<CR>
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug vim-scripts/cscope.vim
@@ -734,6 +764,11 @@ vnoremap <M-u> :tabprev<cr>
 nnoremap <M-o> :tabnext<cr>
 inoremap <M-o> <C-o>:tabnext<cr>
 vnoremap <M-o> :tabnext<cr>
+
+
+" nnoremap <leader>a :execute "normal! /)\<cr>$T)a__)\<cr>"
+" nnoremap <leader>a :execute "normal! xmp/)\n$lllllT)i)"<cr>:normal! `p<cr>
+nnoremap <leader>x :execute "normal! xmp/)\n$lllllT)i)"<cr>:normal! `p<cr>:nohls<cr>
 
 " Use Ctrl+Space to do omnicompletion:
 if has("gui_running")
