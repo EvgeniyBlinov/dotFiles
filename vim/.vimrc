@@ -205,9 +205,9 @@ augroup END
 
 let mapleader = ","
 inoremap jk <esc>
-vnoremap jk <esc>
 inoremap <c-[> <nop>
-vnoremap <c-[> <nop>
+" vnoremap jk <esc>
+" vnoremap <c-[> <nop>
 
 ca tn tabnew
 ca pl py3 py_lib()
@@ -551,9 +551,12 @@ augroup END
 " let g:UltiSnipsJumpForwardTrigger="<a-b>"
 " let g:UltiSnipsJumpForwardTrigger="<a-g>"
 " let g:UltiSnipsJumpBackwardTrigger="<a-f>"
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-m>"   " or Enter
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-k>"
+" let g:UltiSnipsJumpForwardTrigger="<c-m>"   " or Enter
+let g:UltiSnipsJumpForwardTrigger="<c-k>"   " or Enter
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpBackwardTrigger="<c-m>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -674,13 +677,13 @@ endif
 "---------------------------------------------------------
 
 " nnoremap <c-h> 5h
-nnoremap <c-j> 5j
-nnoremap <c-k> 5k
+" nnoremap <c-j> 5j
+" nnoremap <c-k> 5k
 " nnoremap <c-l> 5l
 
 " vnoremap <c-h> 5h
-vnoremap <c-j> 5j
-vnoremap <c-k> 5k
+" vnoremap <c-j> 5j
+" vnoremap <c-k> 5k
 " vnoremap <c-l> 5l
 
 nnoremap j gj
@@ -700,14 +703,21 @@ inoremap <c-l> <Right>
 " vnoremap <c-n> :tabnext<cr>
 " vnoremap <c-p> :tabprev<cr>
 
-nnoremap <M-7> :tabprev<cr>
-inoremap <M-7> <C-o>:tabprev<cr>
-vnoremap <M-7> :tabprev<cr>
-nnoremap <M-9> :tabnext<cr>
-inoremap <M-9> <C-o>:tabnext<cr>
-vnoremap <M-9> :tabnext<cr>
+" nnoremap <M-7> :tabprev<cr>
+" inoremap <M-7> <C-o>:tabprev<cr>
+" vnoremap <M-7> :tabprev<cr>
+" nnoremap <M-9> :tabnext<cr>
+" inoremap <M-9> <C-o>:tabnext<cr>
+" vnoremap <M-9> :tabnext<cr>
 
 
+" alt-u alt-o
+nnoremap <M-u> :tabprev<cr>
+inoremap <M-u> <C-o>:tabprev<cr>
+vnoremap <M-u> :tabprev<cr>
+nnoremap <M-o> :tabnext<cr>
+inoremap <M-o> <C-o>:tabnext<cr>
+vnoremap <M-o> :tabnext<cr>
 
 " Use Ctrl+Space to do omnicompletion:
 if has("gui_running")
