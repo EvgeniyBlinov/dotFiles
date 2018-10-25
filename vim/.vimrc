@@ -91,17 +91,21 @@ Plug 'ntpeters/vim-better-whitespace'
 " Plug 'takac/vim-hardtime'
 Plug 'matze/vim-move'
 Plug 'junegunn/gv.vim'
-Plug 'wincent/ferret'
+" Plug 'wincent/ferret'
 Plug 'davidhalter/jedi-vim'
 " Plug '907th/vim-auto-save'
 
-Plug 'vim-scripts/Align'
+" Plug 'vim-scripts/Align'
+" Plug 'vim-scripts/Align'
+Plug 'junegunn/vim-easy-align'
 Plug 'vim-scripts/SQLUtilities'
 
 " Plug 'vim-syntastic/syntastic'
 Plug 'w0rp/ale'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'AndrewRadev/splitjoin.vim'
 
@@ -453,6 +457,7 @@ let g:ctrlp_by_filename = 1
 " map <Leader><Leader> <Plug>(easymotion-prefix)
 " map <c-m> <Plug>(easymotion-prefix)
 map s <Plug>(easymotion-prefix)
+map <leader><leader> <Plug>(easymotion-prefix)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
@@ -640,6 +645,17 @@ nnoremap <leader>zz :MyFzf<CR>
 " nnoremap <leader>l :call ToggleLocationList()<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'junegunn/vim-easy-align'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " python
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -689,7 +705,7 @@ endif
 nnoremap j gj
 nnoremap k gk
 
-inoremap <C-BS> <C-W>
+" inoremap <C-BS> <C-W>
 " imap <a-l> <Right>
 " imap <a-h> <Left>
 inoremap <c-l> <Right>
