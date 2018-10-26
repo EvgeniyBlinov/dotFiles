@@ -406,21 +406,26 @@ let python_highlight_all = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug: jedi
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:jedi#auto_initialization = 1
+" не работает с 3 питоном на маке (((
+let g:jedi#force_py_version = 2
 
-let g:jedi#popup_on_dot = 1
+"  let g:jedi#auto_initialization = 1
+
+" let g:jedi#popup_on_dot = 1
+"
 " let g:jedi#use_tabs_not_buffers = 1
-let g:jedi#use_tabs_not_buffers = 0
+" let g:jedi#use_tabs_not_buffers = 0
 let g:jedi#goto_command = "\'g"
 let g:jedi#goto_assignments_command = "\'d"
 let g:jedi#goto_definitions_command = ""
 let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = ""
-" let g:jedi#completions_command = "<C-n>"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = ""
-nnoremap <F4> :call setreg('"', line('.'))<CR> :tabnew %<CR> :<C-r>"<CR>
+" let g:jedi#usages_command = ""
 
+" let g:jedi#completions_command = "<C-Space>"
+" let g:jedi#rename_command = ""
+" nnoremap <F4> :call setreg('"', line('.'))<CR> :tabnew %<CR> :<C-r>"<CR>
+
+" let g:jedi#completions_command = "<C-n>"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " completions option
@@ -467,6 +472,7 @@ nmap <Leader>b :Buffers<CR>
 
 nmap <Leader><leader>s :Snippets<CR>
 nmap <Leader><leader>l :Lines<CR>
+nmap sl :BLines<CR>
 nmap <Leader>t :Tags<CR>
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
@@ -491,6 +497,7 @@ inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 " map <c-m> <Plug>(easymotion-prefix)
 map s <Plug>(easymotion-prefix)
 map <leader><leader> <Plug>(easymotion-prefix)
+
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 " let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
