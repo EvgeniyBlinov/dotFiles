@@ -159,7 +159,6 @@ Plug 'wellle/targets.vim'
 
 Plug 'rking/ag.vim'
 Plug 'Chun-Yang/vim-action-ag'
-" Plug 'tpope/vim-dadbod'
 
 " CTRL-N !!!!! awesome
 " Plug 'terryma/vim-multiple-cursors'
@@ -168,6 +167,7 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'Olical/vim-enmasse'
 
 " Plug 'python-mode/python-mode', { 'branch': 'develop' }
+"
 Plug 'kana/vim-textobj-user'
 Plug 'bps/vim-textobj-python'
 "
@@ -176,6 +176,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'davidhalter/jedi-vim'
+" Plug 'tpope/vim-sleuth'
+" Plug 'tpope/vim-dadbod'
 call plug#end()
 
 """DEBUG""""""""""""""""""""
@@ -243,6 +245,23 @@ set laststatus=2
 if has('gui_macvim')
     set macmeta
 endif
+" set guifont=DejaVu\ Sans\ Mono\ 10
+" set guifont=Liberation\ Mono\ 9.5
+" set guifont=Monospace\ 10
+" set guifont=Liberation\ Mono\ 10
+if has('gui_macvim')
+    set guioptions-=a
+    " set guifont=Monaco:h12
+    " set guifont=Sarasa\ Mono\ SC:h12
+    " set guifont=Menlo:h12
+    " set guifont=Source\ Code\ Pro\ ExtraLight:h13
+    " set guifont=Source\ Code\ Pro\ ExtraLight:h13
+    set guifont=Source\ Code\ Pro:h12
+    " set guifont=Source\ Code\ Pro\ ExtraLight:h12
+else
+    set guifont=Ubuntu\ Mono\ 11
+endif
+
 set modelines=0
 set ttyfast
 set ruler
@@ -275,22 +294,6 @@ set guioptions-=T
 set guioptions-=r
 set guioptions-=m
 
-" set guifont=DejaVu\ Sans\ Mono\ 10
-" set guifont=Liberation\ Mono\ 9.5
-" set guifont=Monospace\ 10
-" set guifont=Liberation\ Mono\ 10
-if has('gui_macvim')
-    set guioptions-=a
-    " set guifont=Monaco:h12
-    " set guifont=Sarasa\ Mono\ SC:h12
-    " set guifont=Menlo:h12
-    " set guifont=Source\ Code\ Pro\ ExtraLight:h13
-    " set guifont=Source\ Code\ Pro\ ExtraLight:h13
-    set guifont=Source\ Code\ Pro:h12
-    " set guifont=Source\ Code\ Pro\ ExtraLight:h12
-else
-    set guifont=Ubuntu\ Mono\ 11
-endif
 
 
 " Hide the mouse pointer while typing
@@ -407,7 +410,9 @@ let python_highlight_all = 1
 " Plug: jedi
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " не работает с 3 питоном на маке (((
-let g:jedi#force_py_version = 2
+if has('gui_macvim')
+    let g:jedi#force_py_version = 2
+endif
 
 "  let g:jedi#auto_initialization = 1
 
@@ -678,9 +683,11 @@ vmap # <Plug>AgActionVisual
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug vim-scripts/cscope.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:cscope_silent = 1 
 " nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
 " nnoremap <leader>l :call ToggleLocationList()<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
