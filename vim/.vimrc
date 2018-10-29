@@ -176,7 +176,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'davidhalter/jedi-vim'
-" Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-sleuth'
 " Plug 'tpope/vim-dadbod'
 call plug#end()
 
@@ -245,22 +245,6 @@ set laststatus=2
 if has('gui_macvim')
     set macmeta
 endif
-" set guifont=DejaVu\ Sans\ Mono\ 10
-" set guifont=Liberation\ Mono\ 9.5
-" set guifont=Monospace\ 10
-" set guifont=Liberation\ Mono\ 10
-if has('gui_macvim')
-    set guioptions-=a
-    " set guifont=Monaco:h12
-    " set guifont=Sarasa\ Mono\ SC:h12
-    " set guifont=Menlo:h12
-    " set guifont=Source\ Code\ Pro\ ExtraLight:h13
-    " set guifont=Source\ Code\ Pro\ ExtraLight:h13
-    set guifont=Source\ Code\ Pro:h12
-    " set guifont=Source\ Code\ Pro\ ExtraLight:h12
-else
-    set guifont=Ubuntu\ Mono\ 11
-endif
 
 set modelines=0
 set ttyfast
@@ -294,6 +278,22 @@ set guioptions-=T
 set guioptions-=r
 set guioptions-=m
 
+" set guifont=DejaVu\ Sans\ Mono\ 10
+" set guifont=Liberation\ Mono\ 9.5
+" set guifont=Monospace\ 10
+" set guifont=Liberation\ Mono\ 10
+if has('gui_macvim')
+    set guioptions-=a
+    " set guifont=Monaco:h12
+    " set guifont=Sarasa\ Mono\ SC:h12
+    " set guifont=Menlo:h12
+    " set guifont=Source\ Code\ Pro\ ExtraLight:h13
+    " set guifont=Source\ Code\ Pro\ ExtraLight:h13
+    set guifont=Source\ Code\ Pro:h12
+    " set guifont=Source\ Code\ Pro\ ExtraLight:h12
+else
+    set guifont=Ubuntu\ Mono\ 11
+endif
 
 
 " Hide the mouse pointer while typing
@@ -683,7 +683,7 @@ vmap # <Plug>AgActionVisual
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug vim-scripts/cscope.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:cscope_silent = 1 
+let g:cscope_silent = 1
 " nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
 " nnoremap <leader>l :call ToggleLocationList()<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
