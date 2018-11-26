@@ -156,7 +156,9 @@ alias anaconda_qtconsole='cd ~/Downloads/; /home/mor/anaconda2/bin/jupyter qtcon
 alias anaconda_web='cd ~/Downloads/; /home/mor/anaconda2/bin/jupyter notebook --no-browser'
 
 export WORK_PATH=/Users/$USER/SBER
-export CDPATH=$GOPATH/src/github.com/CodeTeam:$WORK_PATH:~/Dropbox/:~/SBER_STUFF/
+export CDPATH=$GOPATH/src/github.com/CodeTeam:$GOPATH/src/github.com:$WORK_PATH:~/Dropbox/:~/SBER_STUFF/
+export CDPATH=$GOPATH/src/alexsnet.ru:$CDPATH
+export CDPATH=$GOPATH/src/coursera:$CDPATH
 export PATH=~/SBER_STUFF/:$PATH
 export ADCOMBO_CFG_NAME=development
 

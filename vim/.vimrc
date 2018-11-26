@@ -76,7 +76,7 @@ Plug 'vim-scripts/vim-jsbeautify'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 
 Plug 'easymotion/vim-easymotion'
 " Plug 'epeli/slimux'
@@ -177,6 +177,8 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'davidhalter/jedi-vim'
 Plug 'tpope/vim-sleuth'
+
+Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'tpope/vim-dadbod'
 call plug#end()
 
@@ -216,10 +218,12 @@ augroup main_autocmd
 augroup END
 
 let mapleader = ","
-inoremap jk <esc>
-inoremap <c-[> <nop>
+inoremap <c-j> <esc>l
+vnoremap <c-j> <esc>
+" inoremap <c-[> <nop>
 " vnoremap jk <esc>
 " vnoremap <c-[> <nop>
+" inoremap <c-[> <nop>
 
 ca tn tabnew
 ca pl py3 py_lib()
@@ -289,8 +293,15 @@ if has('gui_macvim')
     " set guifont=Menlo:h12
     " set guifont=Source\ Code\ Pro\ ExtraLight:h13
     " set guifont=Source\ Code\ Pro\ ExtraLight:h13
-    set guifont=Source\ Code\ Pro:h12
     " set guifont=Source\ Code\ Pro\ ExtraLight:h12
+    "
+    "
+    "
+    "
+    set nomacligatures
+    " set guifont=Fira\ Code:h12
+    " set guifont=Source\ Code\ Pro:h12
+    set guifont=Monoid-Regular:h12
 else
     set guifont=Ubuntu\ Mono\ 11
 endif
@@ -333,7 +344,6 @@ se nocursorline
 "
 " Don't update the display while executing macros
 set lazyredraw
-
 
 
 set cindent
@@ -389,7 +399,7 @@ map <F8> :emenu Encoding.<TAB>
 " let g:ale_fix_on_save = 1
 let g:ale_fixers = { 'python': ['autopep8', 'isort', 'yapf', 'remove_trailing_lines', 'trim_whitespace'], 'go': ['remove_trailing_lines', 'trim_whitespace'] }
 let g:ale_python_autopep8_options = '--aggressive'
-nnoremap <F9> :ALEFix<CR>
+" nnoremap <F9> :ALEFix<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug: tcomment
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -428,7 +438,7 @@ let g:jedi#documentation_command = "K"
 
 " let g:jedi#completions_command = "<C-Space>"
 " let g:jedi#rename_command = ""
-" nnoremap <F4> :call setreg('"', line('.'))<CR> :tabnew %<CR> :<C-r>"<CR>
+nnoremap <F4> :call setreg('"', line('.'))<CR> :tabnew %<CR> :<C-r>"<CR>
 
 " let g:jedi#completions_command = "<C-n>"
 
@@ -475,8 +485,10 @@ nnoremap <leader>zz :MyFzf<CR>
 
 nmap <Leader>b :Buffers<CR>
 
-nmap <Leader><leader>s :Snippets<CR>
-nmap <Leader><leader>l :Lines<CR>
+nmap <leader><leader>l :Lines<CR>
+nmap <leader>s<leader> :Snippets<CR>
+" nmap <leader><leader>s :Snippets<CR>
+inoremap sj <esc>:Snippets<CR>
 nmap sl :BLines<CR>
 nmap <Leader>t :Tags<CR>
 " Mapping selecting mappings
@@ -506,7 +518,7 @@ map <leader><leader> <Plug>(easymotion-prefix)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 " let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
-let g:EasyMotion_keys = 'asdfgwerthjkluiovcm,;'
+let g:EasyMotion_keys = 'asdfgwerthjkluiovcm'
 let g:EasyMotion_do_shade = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -584,6 +596,12 @@ let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 let g:go_fmt_experimental = 1
+let g:go_auto_type_info = 1
+let g:go_auto_sameids = 1
+
+" let g:go_metalinter_autosave = 1
+" let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+" let g:go_metalinter_autosave_enabled = ['vet']
 
 augroup filetype_go
     autocmd!
@@ -592,7 +610,13 @@ augroup filetype_go
     autocmd FileType go nmap <Leader><leader>d :GoDeclsDir<CR>
     autocmd FileType go nmap <Leader><leader>r :GoReferrers<CR>
     autocmd FileType go nmap <Leader><leader>n :GoRename<CR>
+    autocmd FileType go nmap <Leader><leader>i :GoImplements<CR>
+    autocmd FileType go nmap <Leader><leader>e :GoWhicherrs<CR>
+    autocmd FileType go nmap <Leader><leader>c :GoChannelPeers<CR>
+    autocmd FileType go nmap <F9> :GoMetaLinter<CR>
+    autocmd FileType go nmap <F8> :GoImpl 
 augroup END
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
