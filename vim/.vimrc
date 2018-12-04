@@ -599,6 +599,9 @@ let g:go_fmt_experimental = 1
 let g:go_auto_type_info = 1
 let g:go_auto_sameids = 1
 
+let g:go_gocode_unimported_packages = 1
+let g:go_gocode_propose_source = 0
+
 " let g:go_metalinter_autosave = 1
 " let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 " let g:go_metalinter_autosave_enabled = ['vet']
@@ -742,7 +745,7 @@ com! FormatJSON %!python -m json.tool
 " maps
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "quick save
-noremap ms :redraw!<CR>:w<CR>
+noremap ms :redraw!<CR>:w<CR>zz
 
 "- clipboard ---------------------------------------------
 noremap <c-c> "+y
