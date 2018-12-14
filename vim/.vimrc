@@ -1,6 +1,10 @@
 " ln -s ~/Dropbox/dotFiles/vim/.vimrc .vimrc
 " mkdir ~/custom_vim/
 "
+" $ brew tap macvim-dev/macvim
+" $ brew install --HEAD macvim-dev/macvim/macvim --with-properly-linked-python2-python3
+" $ brew link macvim
+
 set nocompatible
 filetype off
 
@@ -38,7 +42,6 @@ Plug 'YorickPeterse/happy_hacking.vim'
 "
 " жуткое гавно никогда больше не ставь
 " Plug 'thaerkh/vim-workspace'
-
 "
 " ]` [` - прыгать вправо вверх вниз
 Plug 'kshenoy/vim-signature'
@@ -50,9 +53,12 @@ Plug 'kshenoy/vim-signature'
 Plug 'airblade/vim-rooter'
 Plug 'vim-scripts/nginx.vim'
 Plug 'vim-scripts/sudo.vim'
-Plug 'Konfekt/FastFold'
-Plug 'tmhedberg/simpylfold'
+
+" Plug 'Konfekt/FastFold'
+" Plug 'tmhedberg/simpylfold'
+
 " Plug 'kien/rainbow_parentheses.vim'
+
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'elzr/vim-json'
 Plug 'hdima/python-syntax'
@@ -69,13 +75,10 @@ Plug 'tpope/vim-surround'
 
 Plug 'vim-scripts/vim-javascript'
 Plug 'vim-scripts/vim-jsbeautify'
-
-
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-
 " Plug 'ervandew/supertab'
 
 Plug 'easymotion/vim-easymotion'
@@ -103,6 +106,7 @@ Plug 'vim-scripts/SQLUtilities'
 Plug 'w0rp/ale'
 
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'hexdigest/gounit-vim'
 Plug 'AndrewRadev/splitjoin.vim'
 
 Plug 'vim-scripts/cscope.vim'
@@ -353,11 +357,24 @@ set cino=M1(0,W4
 set pastetoggle=
 "НАСТРОЙКИ СВОРАЧИВАНИЯ БЛОКОВ КОДА (фолдинг)
 set foldenable " включить фолдинг
-set foldmethod=syntax " определять блоки на основе синтаксиса файла
+" set foldmethod=syntax " определять блоки на основе синтаксиса файла
 set foldmethod=indent " определять блоки на основе синтаксиса файла
-set foldcolumn=0 " показать полосу для управления сворачиванием
-set foldlevel=99 " что бы по умолчанию всё были раскрыты заебало каждый раз zR
+" set foldcolumn=0 " показать полосу для управления сворачиванием
+set foldlevel=99 " что бы по умолчанию всё были раскрыты
+" set foldlevel=0 " что бы по умолчанию всё были скрыты
+"
 
+" If you like the convenience of having Vim define folds automatically by
+" indent level, but would also like to create folds manually,
+" you can get both by putting this in your vimrc:
+"
+" z-f -make manual fold z-d delete fold
+" augroup vimrc
+  " ломает фолд подумай как исправить
+  " au BufReadPre * setlocal foldmethod=indent
+  " au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+  " au BufWinEnter * setlocal foldmethod=manual
+" augroup END
 
 "" Разворачивать окно редактора на весь экран
 if has('gui')
@@ -480,7 +497,8 @@ let g:ctrlp_by_filename = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug: junegunn/fzf
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-command! -bang MyFzf call fzf#run(fzf#wrap('lalala', {'dir': '~/SBER', 'options': '--query "!^venv_ .py$ "'}, <bang>0))
+" command! -bang MyFzf call fzf#run(fzf#wrap('lalala', {'dir': '~/SBER', 'options': '--query "!^venv_ .py$ "'}, <bang>0))
+command! -bang MyFzf call fzf#run(fzf#wrap('lalala', {'dir': '~/GOPATH/src', 'options': '--query ".go$ "'}, <bang>0))
 nnoremap <leader>zz :MyFzf<CR>
 
 nmap <Leader>b :Buffers<CR>
@@ -595,12 +613,12 @@ let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
-let g:go_fmt_experimental = 1
 let g:go_auto_type_info = 1
 let g:go_auto_sameids = 1
-
 let g:go_gocode_unimported_packages = 1
 let g:go_gocode_propose_source = 0
+
+let g:go_fmt_experimental = 1
 
 " let g:go_metalinter_autosave = 1
 " let g:go_metalinter_autosave_enabled = ['vet', 'golint']
@@ -640,6 +658,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-m>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+" let g:UltiSnipsUsePythonVersion = 3
+" let g:UltiSnipsUsePythonVersion = 2
 
 " let g:UltiSnipsSnippetDirectories=["UltiSnips", 'gosnippets/Ultisnips', '~/Dropbox/dotFiles/vim/snippets']
 
