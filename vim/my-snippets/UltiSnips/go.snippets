@@ -2,3 +2,9 @@
 snippet pp
 pp.Println(${1:s})
 endsnippet
+
+snippet irn "If statement return nil, err"
+if err != nil {
+	return nil, err
+}
+endsnippet
