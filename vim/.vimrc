@@ -866,7 +866,7 @@ com! FormatJSON %!python -m json.tool
 " maps
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "quick save                    
-noremap ms :redraw!<CR>:let w:cccc=col('.')<CR>:let w:llll=line('.')<CR>:wa<CR>:call cursor(w:llll, w:cccc)<CR>
+noremap ms :redraw!<CR>:let w:cccc=col('.')<CR>:let w:llll=line('.')<CR>:w<CR>:wa<CR>:call cursor(w:llll, w:cccc)<CR>
 
 
 "- clipboard ---------------------------------------------
