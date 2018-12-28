@@ -255,6 +255,8 @@ Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'luochen1990/rainbow'
 "
 Plug 'pandysong/ghost-text.vim'
+
+Plug 'farmergreg/vim-lastplace'
 call plug#end()
 
 """DEBUG""""""""""""""""""""
@@ -863,8 +865,9 @@ com! FormatJSON %!python -m json.tool
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " maps
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"quick save
-noremap ms :redraw!<CR>:w<CR>zz
+"quick save                    
+noremap ms :redraw!<CR>:let w:cccc=col('.')<CR>:let w:llll=line('.')<CR>:wa<CR>:call cursor(w:llll, w:cccc)<CR>
+
 
 "- clipboard ---------------------------------------------
 noremap <c-c> "+y
