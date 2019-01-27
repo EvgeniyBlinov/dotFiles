@@ -173,7 +173,9 @@ Plug 'vim-scripts/SQLUtilities'
 " Plug 'vim-syntastic/syntastic'
 Plug 'w0rp/ale'
 
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries',  'commit': 'c2fa1a1'}
+" Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries',  'commit': 'c2fa1a1'}
+Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
+
 Plug 'hexdigest/gounit-vim'
 Plug 'AndrewRadev/splitjoin.vim'
 
@@ -251,12 +253,23 @@ Plug 'davidhalter/jedi-vim'
 Plug 'tpope/vim-sleuth'
 
 Plug 'AndrewRadev/splitjoin.vim'
-" Plug 'tpope/vim-dadbod'
 " Plug 'luochen1990/rainbow'
 "
 Plug 'pandysong/ghost-text.vim'
 
 Plug 'farmergreg/vim-lastplace'
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+Plug 'tell-k/vim-autoflake'
+
+" Plug 'tpope/vim-dadbod'
 call plug#end()
 
 """DEBUG""""""""""""""""""""
@@ -506,13 +519,72 @@ menu Encoding.CP866    :e ++enc=cp866<CR>
 menu Encoding.KOI8-U   :e ++enc=koi8-u<CR>
 map <F8> :emenu Encoding.<TAB>
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug autoflake
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:autoflake_remove_all_unused_imports=1
+let g:autoflake_remove_unused_variables=1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug deoplete
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option({
+\ 'auto_complete_delay': 0,
+\ 'camel_case': v:true,
+\ 'smart_case': v:true,
+\ })
+
+call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length'])
+
+call deoplete#custom#source('omni',          'mark', '<omni>')
+call deoplete#custom#source('flow',          'mark', '<flow>')
+call deoplete#custom#source('padawan',       'mark', '<php>')
+call deoplete#custom#source('tern',          'mark', '<tern>')
+call deoplete#custom#source('go',            'mark', '<go>')
+call deoplete#custom#source('jedi',          'mark', '<jedi>')
+call deoplete#custom#source('vim',           'mark', '<vim>')
+call deoplete#custom#source('neosnippet',    'mark', '<snip>')
+call deoplete#custom#source('tag',           'mark', '<tag>')
+call deoplete#custom#source('around',        'mark', '<around>')
+call deoplete#custom#source('buffer',        'mark', '<buf>')
+call deoplete#custom#source('tmux-complete', 'mark', '<tmux>')
+call deoplete#custom#source('syntax',        'mark', '<syntax>')
+call deoplete#custom#source('member',        'mark', '<member>')
+
+call deoplete#custom#source('padawan',       'rank', 660)
+call deoplete#custom#source('go',            'rank', 650)
+call deoplete#custom#source('vim',           'rank', 640)
+call deoplete#custom#source('flow',          'rank', 630)
+call deoplete#custom#source('TernJS',        'rank', 620)
+call deoplete#custom#source('jedi',          'rank', 610)
+call deoplete#custom#source('omni',          'rank', 600)
+call deoplete#custom#source('neosnippet',    'rank', 510)
+call deoplete#custom#source('member',        'rank', 500)
+call deoplete#custom#source('file_include',  'rank', 420)
+call deoplete#custom#source('file',          'rank', 410)
+call deoplete#custom#source('tag',           'rank', 400)
+call deoplete#custom#source('around',        'rank', 330)
+call deoplete#custom#source('buffer',        'rank', 320)
+call deoplete#custom#source('dictionary',    'rank', 310)
+call deoplete#custom#source('tmux-complete', 'rank', 300)
+call deoplete#custom#source('syntax',        'rank', 200)
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug w0rp/ale
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " let g:ale_fix_on_save = 1
 let g:ale_fixers = { 'python': ['autopep8', 'isort', 'yapf', 'remove_trailing_lines', 'trim_whitespace'], 'go': ['remove_trailing_lines', 'trim_whitespace'] }
 let g:ale_python_autopep8_options = '--aggressive'
-" nnoremap <F9> :ALEFix<CR>
+augroup filetype_py
+  autocmd FileType python map <buffer> <F9> :call Autoflake()<CR>
+  autocmd FileType python map <buffer> <F10> :ALEFix<CR>
+augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug: tcomment
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -601,9 +673,10 @@ nnoremap <leader>zz :MyFzf<CR>
 nmap <Leader>b :Buffers<CR>
 
 nmap <leader><leader>l :Lines<CR>
-nmap <leader>s<leader> :Snippets<CR>
+" nmap <leader>s<leader> :Snippets<CR>
 " nmap <leader><leader>s :Snippets<CR>
-inoremap sj <esc>:Snippets<CR>
+inoremap sn <esc>:Snippets<CR>
+nnoremap sn :Snippets<CR>
 nmap sl :BLines<CR>
 nmap <Leader>t :Tags<CR>
 " Mapping selecting mappings
@@ -865,7 +938,7 @@ com! FormatJSON %!python -m json.tool
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " maps
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"quick save                    
+"quick save
 noremap ms :redraw!<CR>:let w:cccc=col('.')<CR>:let w:llll=line('.')<CR>:w<CR>:wa<CR>:call cursor(w:llll, w:cccc)<CR>
 
 
