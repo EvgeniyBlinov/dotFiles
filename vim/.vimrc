@@ -250,7 +250,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'davidhalter/jedi-vim'
-Plug 'tpope/vim-sleuth'
+" Plug 'tpope/vim-sleuth'
 
 Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'luochen1990/rainbow'
@@ -793,6 +793,9 @@ let g:go_fmt_experimental = 1
 " let g:go_fold_enable = ['block', 'import', 'varconst', 'package_comment', 'comment']
 let g:go_fold_enable = ['block']
 
+" let g:go_debug_address = '127.0.0.1:8181'
+let g:go_debug_address = '127.0.0.1:40000'
+
 " let g:go_metalinter_autosave = 1
 " let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 " let g:go_metalinter_autosave_enabled = ['vet']
@@ -939,7 +942,8 @@ com! FormatJSON %!python -m json.tool
 " maps
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "quick save
-noremap ms :redraw!<CR>:let w:cccc=col('.')<CR>:let w:llll=line('.')<CR>:w<CR>:wa<CR>:call cursor(w:llll, w:cccc)<CR>
+" noremap ms :redraw!<CR>:let w:cccc=col('.')<CR>:let w:llll=line('.')<CR>:w<CR>:wa<CR>:call cursor(w:llll, w:cccc)<CR>
+noremap ms :w<CR>:wa<CR>zz
 
 
 "- clipboard ---------------------------------------------
