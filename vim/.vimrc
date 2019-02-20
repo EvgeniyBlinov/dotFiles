@@ -103,6 +103,7 @@ Plug 'sickill/vim-monokai'
 Plug 'challenger-deep-theme/vim'
 Plug 'keith/parsec.vim'
 Plug 'YorickPeterse/happy_hacking.vim'
+Plug 'tomasiser/vim-code-dark'
 
 " ------------------------------
 " Plug 'mhinz/vim-startify'
@@ -279,6 +280,10 @@ call plug#end()
 " SPEED UP MAC OS !!!!!!!!!!!!!11
 " ➜   Proxy git:(feature/REDB-198) defaults write -g InitialKeyRepeat -int 10
 " ➜   Proxy git:(feature/REDB-198) defaults write -g KeyRepeat -int 1
+"
+" defaults write com.apple.dock workspaces-auto-swoosh -bool NO
+" killall Dock
+"
 " let loaded_matchparen = 1
 let g:matchparen_timeout = 10
 let g:matchparen_insert_timeout = 10
@@ -500,9 +505,9 @@ endif
 syntax enable
 if has('gui_running')
     set background=dark
-    " colorscheme PaperColor
+    colorscheme PaperColor
     " colorscheme material-monokai
-    colorscheme gruvbox
+    " colorscheme gruvbox
     hi Search guibg=Yellow guifg=Black
 else
     " colorscheme elflord
@@ -679,6 +684,7 @@ inoremap sn <esc>:Snippets<CR>
 nnoremap sn :Snippets<CR>
 nmap sl :BLines<CR>
 nmap <Leader>t :Tags<CR>
+
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
@@ -1024,6 +1030,8 @@ nmap <leader>f<leader> :set foldmethod=syntax<CR>
 nnoremap <c-y> viwy
 " заменить c помощью cgn
 nnoremap si *Nzzcgn
+nnoremap s; ^v$hd
+
 " nnoremap sk ciw
 
 " выделение с помощью easymotion

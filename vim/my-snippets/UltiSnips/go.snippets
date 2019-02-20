@@ -1,10 +1,22 @@
 # pretty print "github.com/k0kubun/pp"
 snippet pp
-pp.Println(${1:s})
+pp.Println(${1:})
 endsnippet
 
 snippet ld
-log.Debug(${1:s})
+log.Debug("${1:}")
+endsnippet
+
+snippet li
+log.Info"(${1:}")
+endsnippet
+
+snippet lw
+log.Warn("${1:}")
+endsnippet
+
+snippet le
+log.WithError(err).Error("${1:}")
 endsnippet
 
 snippet irn "If statement return nil, err"
