@@ -22,6 +22,16 @@ esac
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Adding go_js_wasm_exec to your PATH will allow go run and go test to work for js/wasm without having to manually provide the -exec flag each time:
+#$ export PATH="$PATH:$(go env GOROOT)/misc/wasm"
+#
+# $ GOOS=js GOARCH=wasm go run .
+# Hello, WebAssembly!
+# $ GOOS=js GOARCH=wasm go test
+# PASS
+# ok  	example.org/my/pkg	0.800s
+export PATH="$PATH:$(go env GOROOT)/misc/wasm"
+
 # Path to your oh-my-zsh installation.
 #  export ZSH=/home/mor/.oh-my-zsh
 export ZSH=~/.oh-my-zsh
@@ -127,6 +137,7 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
 bindkey '^ ' autosuggest-accept
+bindkey '^L' autosuggest-accept                                                           <<<
 
 function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
@@ -135,6 +146,7 @@ function virtualenv_info {
 
 local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
 PROMPT='${ret_status} $(virtualenv_info) %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
+export GO111MODULE=on
 export GOPATH=$HOME/GOPATH
 echo GOPATH = $GOPATH
 
@@ -159,6 +171,7 @@ export WORK_PATH=/Users/$USER/SBER
 export CDPATH=$GOPATH/src/github.com/CodeTeam:$GOPATH/src/github.com:$WORK_PATH:~/Dropbox/:~/SBER_STUFF/
 export CDPATH=$GOPATH/src/alexsnet.ru:$CDPATH
 export CDPATH=$GOPATH/src/coursera:$CDPATH
+export CDPATH=$GOPATH/src/:$CDPATH
 export PATH=~/SBER_STUFF/:$PATH
 export ADCOMBO_CFG_NAME=development
 
@@ -211,3 +224,4 @@ export EDITOR='vim'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
