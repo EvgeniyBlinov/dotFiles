@@ -137,7 +137,7 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
 bindkey '^ ' autosuggest-accept
-bindkey '^L' autosuggest-accept                                                           <<<
+bindkey '^L' autosuggest-accept
 
 function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '

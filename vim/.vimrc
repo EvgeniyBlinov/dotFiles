@@ -250,8 +250,6 @@ Plug 'wellle/targets.vim'
 Plug 'rking/ag.vim'
 Plug 'Chun-Yang/vim-action-ag'
 
-" CTRL-N !!!!! awesome
-" Plug 'terryma/vim-multiple-cursors'
 
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'Olical/vim-enmasse'
@@ -287,6 +285,8 @@ Plug 'tell-k/vim-autoflake'
 Plug 'AndrewRadev/undoquit.vim'
 
 " Plug 'tpope/vim-dadbod'
+" CTRL-N !!!!! awesome
+Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
 """DEBUG""""""""""""""""""""
@@ -899,6 +899,8 @@ source ~/Dropbox/dotFiles/vim/vimrc_dbext.vim
 " Plug: auto-pairs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:AutoPairsMapCh = 0
+" let g:AutoPairsShortcutJump = '<M-n>'
+let g:AutoPairsShortcutJump = ''
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plug: vim-workspace
