@@ -287,6 +287,7 @@ Plug 'AndrewRadev/undoquit.vim'
 " Plug 'tpope/vim-dadbod'
 " CTRL-N !!!!! awesome
 Plug 'terryma/vim-multiple-cursors'
+Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
 call plug#end()
 
 """DEBUG""""""""""""""""""""
@@ -552,6 +553,18 @@ call deoplete#custom#option({
 \ 'deoplete-filter-matcher_full_fuzzy': v:true,
 \ 'min_pattern_length': 1,
 \ })
+
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.javascript = [
+  \ 'tern#Complete',
+  \ 'jspc#omni'
+\]
+
+set completeopt=longest,menuone,preview
+let g:deoplete#sources = {}
+let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
+let g:tern#command = ['tern']
+let g:tern#arguments = ['--persistent']
 
 " call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length'])
 "
