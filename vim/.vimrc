@@ -798,12 +798,12 @@ map  <buffer> <silent> <Leader>x <Plug>(IPython-RunCell)
 " Plug: Neocomplete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " :NeocompleteEnable
-let g:neocomplete#enable_at_startup = 0
-
-let g:neocomplete#force_overwrite_completefunc      = 1
-let g:neocomplete#enable_smart_case                 = 1
-let g:neocomplete#auto_completion_start_length      = 0
-let g:neocomplete#sources#syntax#min_keyword_length = 0
+" let g:neocomplete#enable_at_startup = 0
+"
+" let g:neocomplete#force_overwrite_completefunc      = 1
+" let g:neocomplete#enable_smart_case                 = 1
+" let g:neocomplete#auto_completion_start_length      = 0
+" let g:neocomplete#sources#syntax#min_keyword_length = 0
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -913,7 +913,7 @@ source ~/Dropbox/dotFiles/vim/vimrc_dbext.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:AutoPairsMapCh = 0
 " let g:AutoPairsShortcutJump = '<M-n>'
-let g:AutoPairsShortcutJump = ''
+" let g:AutoPairsShortcutJump = ''
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plug: vim-workspace
@@ -1096,14 +1096,16 @@ endif
 nmap <leader><leader>f :set foldmethod=manual<CR>
 nmap <leader>f<leader> :set foldmethod=syntax<CR>
 
-" заменить слово под курсором
 nnoremap <c-y> viwy
-" заменить c помощью cgn
 nnoremap si *Nzzcgn
 nnoremap s; ^v$hd"add
 nnoremap s' x$p
 " nnoremap <F4> :let g:prev_window_column_cccc=col('.')<CR>:let g:prev_window_line_llll=line('.')<CR>:call setreg('"', line('.'))<CR> :tabnew %<CR> :<C-r>"<CR>:call cursor(g:prev_window_line_llll, g:prev_window_column_cccc)<CR>
 nnoremap so :let g:prev_window_column_cccc=col('.')<CR>:let g:prev_window_line_llll=line('.')<CR>:call setreg('"', line('.'))<CR> :tabnew %<CR> :<C-r>"<CR>:call cursor(g:prev_window_line_llll, g:prev_window_column_cccc)<CR>
+
+" TODO: create better binding
+" nnoremap 9 :tab terminal make _test<CR>
+nnoremap 9 :make<CR>
 
 " nnoremap sk ciw
 
