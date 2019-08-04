@@ -285,9 +285,11 @@ Plug 'tell-k/vim-autoflake'
 Plug 'AndrewRadev/undoquit.vim'
 
 " Plug 'tpope/vim-dadbod'
-" CTRL-N !!!!! awesome
-Plug 'terryma/vim-multiple-cursors'
+" CTRL-N !
+" Plug 'terryma/vim-multiple-cursors'
+"
 Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
+Plug 'maksimr/vim-jsbeautify'
 call plug#end()
 
 """DEBUG""""""""""""""""""""
@@ -609,6 +611,7 @@ let g:tern#arguments = ['--persistent']
 " Syntax Checker
 " let g:ale_fix_on_save = 1
 let g:ale_fixers = { 'python': ['autopep8', 'isort', 'yapf', 'remove_trailing_lines', 'trim_whitespace'], 'go': ['remove_trailing_lines', 'trim_whitespace'] }
+let g:ale_fixers['html'] = ['remove_trailing_lines', 'trim_whitespace', 'tidy', 'prettier']
 let g:ale_python_autopep8_options = '--aggressive'
 augroup filetype_py
   autocmd FileType python map <buffer> <F9> :call Autoflake()<CR>
@@ -987,6 +990,20 @@ nmap ga <Plug>(EasyAlign)
 " Plug 'AndrewRadev/undoquit.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:undoquit_mapping = 'X'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'maksimr/vim-jsbeautify'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" for json
+autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
+" for jsx
+autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

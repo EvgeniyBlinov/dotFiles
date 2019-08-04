@@ -152,6 +152,7 @@ echo GOPATH = $GOPATH
 
 export PATH=$GOPATH/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
+export PATH=$PATH:$HOME/.linkerd2/bin
 echo PATH   = $PATH
 
 # export GOROOT=/usr/local/go
@@ -184,6 +185,9 @@ alias vpnwork='sudo openvpn --config ~/Dropbox/ADCOMBO/openvpn_config/adcombo-ra
 # alias vpnhomejira='sudo openvpn --config ~/Dropbox/ADCOMBO/openvpn_config/adcombo-razdva-defgw.ovpn.bin'
 #
 alias leotrain='python3 ~/Dropbox/lingualeo_api/haha.py'
+
+# alias for browser-sync (with p5.js)
+alias bs='browser-sync start --server --files "*.js, *.html, *.css"'
 
 export NVM_DIR="/home/mor/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
